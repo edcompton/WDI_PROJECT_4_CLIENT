@@ -6,7 +6,7 @@
   "scripts": {
     "postinstall": "bower install && gulp deploy"
   },
-  "author": "Alex Chin <alex@alexchin.co.uk>",
+  "author": "Jack Matthews",
   "license": "ISC",
   "gulp": {
     "srcDir": "src/",
@@ -50,7 +50,8 @@
     }
   },
   "dependencies": {
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "forever": "^0.15.3"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
