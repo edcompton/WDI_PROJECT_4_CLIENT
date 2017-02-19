@@ -3,5 +3,7 @@ console.log('js loaded');
 
 angular
 .module('financeApp', [
-  'ui.router'
+  'ui.router',
+  'ngResource',
+  'angular-jwt'
 ]);

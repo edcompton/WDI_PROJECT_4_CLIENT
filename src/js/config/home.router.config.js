@@ -14,11 +14,24 @@ function homeRouter($stateProvider, $locationProvider, $urlRouterProvider){
     templateUrl: '/js/views/home.html',
     controller: 'HomeCtrl as home'
   })
-  .state('test', {
-    url: '/test',
-    template: '<h1>Test</h1>'
+  .state('register', {
+    url: '/register',
+    templateUrl: '/js/views/register.html',
+    controller: 'RegisterCtrl',
+    controllerAs: 'register'
+  })
+  .state('login', {
+    url: '/login',
+    templateUrl: '/js/views/login.html',
+    controller: 'LoginCtrl',
+    controllerAs: 'login'
+  })
+  .state('usersIndex', {
+    url: '/users',
+    templateUrl: '/js/views/users/index.html',
+    controller: 'UsersIndexCtrl',
+    controllerAs: 'usersIndex'
   });
-
-  // $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/');
 
 }
