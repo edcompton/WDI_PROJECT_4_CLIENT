@@ -1,1 +1,23 @@
-<h1>Homepage</h1>
+<div class="watchlist">
+  <table class="u-full-width">
+    <thead>
+      <tr>
+        <th>Ticker</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>% move</th>
+        <th>Mkt Cap</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="stock in home.stockData">
+        <td>{{ stock.Symbol }}</td>
+        <td>{{ stock.Name }}</td>
+        <td>{{ stock.LastTradePriceOnly }}</td>
+        <td>{{ stock.ChangeinPercent }}</td>
+        <td>{{ stock.MarketCapitalization }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

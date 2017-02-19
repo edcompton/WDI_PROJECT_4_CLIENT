@@ -1,2 +1,10 @@
+.watchlist {
+  font-size: 12px; }
 
-/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiIiwic291cmNlcyI6WyJzdHlsZS5jc3MiXSwic291cmNlc0NvbnRlbnQiOlsiIl0sImZpbGUiOiJzdHlsZS5jc3MifQ== */
+nav li {
+  display: inline-block; }
+
+nav table {
+  text-align: center; }
+
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiIiwic291cmNlcyI6WyJzdHlsZS5jc3MiXSwic291cmNlc0NvbnRlbnQiOlsiLndhdGNobGlzdCB7XG4gIGZvbnQtc2l6ZTogMTJweDsgfVxuXG5uYXYgbGkge1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7IH1cblxubmF2IHRhYmxlIHtcbiAgdGV4dC1hbGlnbjogY2VudGVyOyB9XG4iXSwiZmlsZSI6InN0eWxlLmNzcyJ9 */

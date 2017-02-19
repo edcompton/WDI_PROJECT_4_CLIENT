@@ -14,12 +14,11 @@
   <body ng-controller="MainCtrl as main">
     <header>
       <nav>
-        <ul>
-          <li>Home</li>
-          <li>Login</li>
+        <ul class="nav">
+          <li ui-sref="home">Home</li>
+          <li ui-sref="login">Login</li>
           <li>Logout</li>
-          <li>Users</li>
-          <li>Profile</li>
+          <li ui-sref="usersIndex">Users</li>
         </ul>
       </nav>
     </header>

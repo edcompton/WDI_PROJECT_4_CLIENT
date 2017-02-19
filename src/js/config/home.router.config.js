@@ -10,9 +10,9 @@ function homeRouter($stateProvider, $locationProvider, $urlRouterProvider){
   $stateProvider
   .state('home', {
     url: '/home',
-    // template: '<h1>Home</h1>',
     templateUrl: '/js/views/home.html',
-    controller: 'HomeCtrl as home'
+    controller: 'HomeCtrl',
+    controllerAs: 'home'
   })
   .state('register', {
     url: '/register',
