@@ -7,4 +7,10 @@ nav li {
 nav table {
   text-align: center; }
 
-/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiIiwic291cmNlcyI6WyJzdHlsZS5jc3MiXSwic291cmNlc0NvbnRlbnQiOlsiLndhdGNobGlzdCB7XG4gIGZvbnQtc2l6ZTogMTJweDsgfVxuXG5uYXYgbGkge1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7IH1cblxubmF2IHRhYmxlIHtcbiAgdGV4dC1hbGlnbjogY2VudGVyOyB9XG4iXSwiZmlsZSI6InN0eWxlLmNzcyJ9 */
+.fxMatrix {
+  font-size: 12px;
+  text-align: right; }
+  .fxMatrix td {
+    width: 50px; }
+
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiIiwic291cmNlcyI6WyJzdHlsZS5jc3MiXSwic291cmNlc0NvbnRlbnQiOlsiLndhdGNobGlzdCB7XG4gIGZvbnQtc2l6ZTogMTJweDsgfVxuXG5uYXYgbGkge1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7IH1cblxubmF2IHRhYmxlIHtcbiAgdGV4dC1hbGlnbjogY2VudGVyOyB9XG5cbi5meE1hdHJpeCB7XG4gIGZvbnQtc2l6ZTogMTJweDtcbiAgdGV4dC1hbGlnbjogcmlnaHQ7IH1cbiAgLmZ4TWF0cml4IHRkIHtcbiAgICB3aWR0aDogNTBweDsgfVxuIl0sImZpbGUiOiJzdHlsZS5jc3MifQ== */
