@@ -49,3 +49,21 @@
     </tbody>
   </table>
 </div>
+
+<div class="watchlistRSS">
+  <table class="u-full-width">
+    <thead>
+      <tr>
+        <th>Time</th>
+        <th>Headline</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="article in home.newsItems">
+        <td>{{ article.pubDate }}</td>
+        <td><a href="{{ article.link }}">{{ article.title }}</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

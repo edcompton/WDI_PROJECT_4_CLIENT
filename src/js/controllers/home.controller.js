@@ -2,8 +2,8 @@ angular
 .module('financeApp')
 .controller('HomeCtrl', HomeCtrl);
 
-HomeCtrl.$inject = ['$http'];
-function HomeCtrl($http){
+HomeCtrl.$inject = ['$http','API'];
+function HomeCtrl($http, API){
   const vm = this;
 
   vm.tickers = ['AAPL', 'GOOG', 'KO', 'MMM', 'AXP', 'BA', 'CAT', 'CVX', 'CSCO'];
@@ -57,8 +57,46 @@ function HomeCtrl($http){
 
   vm.populateCurrencies(addCrossCurrencies);
 
-  // $http.get('https://feeds.finance.yahoo.com/rss/2.0/headline?s=aapl&region=US&lang=en-US')
-  //   .then(function(response) {
-  //     console.log(response);
-  //   });
+  function getWatchlistRSS() {
+    $http({
+      method: 'POST',
+      url: `${API}/watchlistfeed`,
+      data: vm.tickers
+    }).then(function successCallback(response) {
+      vm.newsItems = response.data.newsItems;
+    }, function errorCallback(error) {
+      console.log(error);
+    });
+  }
+
+  getWatchlistRSS();
+  getSecRSS();
+  getHistoricalPrices();
+
+  function getSecRSS() {
+    $http({
+      method: 'POST',
+      url: `${API}/filingfeed`,
+      data: vm.tickers
+    }).then(function successCallback(response) {
+      console.log(response);
+    }, function errorCallback(error) {
+      console.log(error);
+    });
+  }
+
+  function getHistoricalPrices() {
+    $http({
+      method: 'POST',
+      url: `${API}/historicalprices`,
+      data: vm.tickers
+    }).then(function successCallback(response) {
+      vm.priceHistory = response.data.priceHistory;
+      console.log(vm.priceHistory);
+    }, function errorCallback(error) {
+      console.log(error);
+    });
+  }
+
+  // https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000320193&CIK=0000320193&type=&dateb=&owner=exclude&start=0&count=40&output=atom
 }
