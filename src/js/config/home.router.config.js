@@ -26,6 +26,12 @@ function homeRouter($stateProvider, $locationProvider, $urlRouterProvider){
     controller: 'LoginCtrl',
     controllerAs: 'login'
   })
+  .state('companyModelShow', {
+    url: '/company/:ticker/model',
+    templateUrl: '/js/views/companies/modelShow.html',
+    controller: 'CompanyModelShowCtrl',
+    controllerAs: 'model'
+  })
   .state('usersIndex', {
     url: '/users',
     templateUrl: '/js/views/users/index.html',

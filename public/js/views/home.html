@@ -65,5 +65,23 @@
       </tr>
     </tbody>
   </table>
+</div>
 
+<div class="watchlistRSS">
+  <table class="u-full-width">
+    <thead>
+      <tr>
+        <th>Time</th>
+        <th>Ticker</th>
+        <th>Filing</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="filing in home.filingItems">
+        <td>{{ filing.date.to_s }}</td>
+        <td>{{ filing.ticker }}</td>
+        <td><a href="{{ filing.link }}">{{ filing.title }}</a></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
