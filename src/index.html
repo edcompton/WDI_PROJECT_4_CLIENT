@@ -7,8 +7,6 @@
   <!-- endinject -->
   <!-- inject:css -->
   <!-- endinject -->
-  <!-- <script src="/bower_components/Chart.js/Chart.min.js"></script>
-<script src="/bower_components/angular-chart.js/dist/angular-chart.js"></script> -->
   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 </head>
 <base href="/">
@@ -16,10 +14,10 @@
   <header>
     <nav>
       <ul class="nav">
-        <li ui-sref="home">Home</li>
-        <li ui-sref="login">Login</li>
-        <li>Logout</li>
-        <li ui-sref="usersIndex">Users</li>
+        <li ui-sref="home" class="button button-primary">Home</li>
+        <li ui-sref="login" class="button">Login</li>
+        <li class="button" ng-click="main.logout()">Logout</li>
+        <li ui-sref="usersIndex" class="button">Users</li>
       </ul>
     </nav>
   </header>
