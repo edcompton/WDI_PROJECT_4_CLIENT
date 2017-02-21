@@ -17,9 +17,9 @@
     <nav>
       <ul class="nav">
         <li ui-sref="home" class="button button-primary">Home</li>
-        <li ui-sref="login" class="button">Login</li>
-        <li class="button" ng-click="main.logout()">Logout</li>
-        <li ui-sref="usersIndex" class="button">Users</li>
+        <li ui-sref="login" class="button" ng-hide="main.user">Login</li>
+        <li class="button" ng-click="main.logout()" ng-show="main.user">Logout</li>
+        <li ui-sref="usersIndex" class="button" ng-show="main.user">Users</li>
       </ul>
     </nav>
   </header>

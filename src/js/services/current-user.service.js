@@ -2,8 +2,9 @@ angular
 .module('financeApp')
 .service('CurrentUserService', CurrentUserService);
 
-CurrentUserService.$inject = ['TokenService', 'User'];
-function CurrentUserService(TokenService, User) {
+CurrentUserService.$inject = ['TokenService', 'User', "$rootScope"];
+function CurrentUserService(TokenService, User, $rootScope) {
+
   const self = this;
 
   self.getUser = () => {
@@ -15,7 +16,6 @@ function CurrentUserService(TokenService, User) {
   self.clearUser = () => {
     currentUser = null;
     TokenService.clearToken();
-    console.log('fuckin token is fucked')
-    // $rootScope.$broadcast('loggedOut');
+    $rootScope.$broadcast('loggedOut');
   };
 }
