@@ -15,4 +15,5 @@ function LoginCtrl(User, $rootScope) {
         console.log(err);
       });
   };
+
 }
