@@ -10,6 +10,7 @@ function HomeCtrl($http, API){
 
   vm.stockData = [];
 
+
   for (const ticker of vm.tickers) {
     $http
     .get(`https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%20in%20(%22${ticker}%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=`)
@@ -55,8 +56,6 @@ function HomeCtrl($http, API){
     }
   }
 
-  vm.populateCurrencies(addCrossCurrencies);
-
   function getWatchlistRSS() {
     $http({
       method: 'POST',
@@ -69,9 +68,12 @@ function HomeCtrl($http, API){
     });
   }
 
-  getWatchlistRSS();
-  getSecRSS();
-  getHistoricalPrices();
+  // vm.populateCurrencies(addCrossCurrencies);
+  // getWatchlistRSS();
+  // getSecRSS();
+  // getHistoricalPrices();
+
+  getFields();
 
   function getSecRSS() {
     $http({
@@ -142,4 +144,16 @@ function HomeCtrl($http, API){
 
 
   // https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000320193&CIK=0000320193&type=&dateb=&owner=exclude&start=0&count=40&output=atom
+
+  function getFields() {
+    $http({
+      method: 'GET',
+      url: `${API}/companies`
+    }).then(function successCallback(response) {
+      console.log(response);
+    }, function errorCallback(error) {
+      console.log(error);
+    });
+  }
+
 }
