@@ -4,6 +4,7 @@ const app     = express();
 const dest    = `${__dirname}/public`;
 
 app.use(express.static(dest));
+app.use(express.static(`${__dirname}/bower_components`));
 
 app.get('/*', (req, res) => res.sendFile(`${dest}/index.html`));
 

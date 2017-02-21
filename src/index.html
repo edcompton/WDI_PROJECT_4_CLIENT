@@ -1,30 +1,32 @@
 <!DOCTYPE html>
 <html ng-app="financeApp">
-  <head>
-    <meta charset="utf-8">
-    <title>Angular Stack Setup</title>
-    <!-- inject:js -->
-    <!-- endinject -->
-    <!-- inject:css -->
-    <!-- endinject -->
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-  </head>
-  <base href="/">
-  <body ng-controller="MainCtrl as main">
-    <header>
-      <nav>
-        <ul class="nav">
-          <li ui-sref="home">Home</li>
-          <li ui-sref="login">Login</li>
-          <li>Logout</li>
-          <li ui-sref="usersIndex">Users</li>
-        </ul>
-      </nav>
-    </header>
-    <main ui-view>
-    </main>
-    <footer>
-      <h3>footer</h3>
-    </footer>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <title>Angular Stack Setup</title>
+  <!-- inject:js -->
+  <!-- endinject -->
+  <!-- inject:css -->
+  <!-- endinject -->
+  <!-- <script src="/bower_components/Chart.js/Chart.min.js"></script>
+<script src="/bower_components/angular-chart.js/dist/angular-chart.js"></script> -->
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+</head>
+<base href="/">
+<body ng-controller="MainCtrl as main">
+  <header>
+    <nav>
+      <ul class="nav">
+        <li ui-sref="home">Home</li>
+        <li ui-sref="login">Login</li>
+        <li>Logout</li>
+        <li ui-sref="usersIndex">Users</li>
+      </ul>
+    </nav>
+  </header>
+  <main ui-view>
+  </main>
+  <footer>
+    <h3>footer</h3>
+  </footer>
+</body>
 </html>
