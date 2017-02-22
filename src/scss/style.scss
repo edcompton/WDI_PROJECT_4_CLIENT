@@ -26,3 +26,16 @@ nav {
 .income_statement, .balance_sheet, .cash_flow {
   font-size: 12px;
 }
+
+
+
+.companySummaryPage {
+  h6, h5 {
+    margin: 0;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 12px;
+  }
+}
