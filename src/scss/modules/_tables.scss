@@ -1,0 +1,36 @@
+.newsfeed, .filing-feed {
+  height: 400px;
+  overflow-y: auto;
+
+table {
+  table-layout: fixed;
+  border-collapse: collapse;
+
+  th, td {
+    padding: 5px;
+    text-align: left;
+  }
+
+  td:nth-child(1), th:nth-child(1) { min-width: $column_one_width; }
+  td:nth-child(2), th:nth-child(2) { min-width: $column_two_width; }
+  td:nth-child(3), th:nth-child(3) { width: $column_three_width; }
+
+  thead {
+    tr {
+      display: block;
+      position: relative;
+    }
+  }
+
+  tbody {
+    display: block;
+    overflow: auto;
+    width: 100%;
+    height: $table_body_height;
+    tr:nth-child(even) {
+      background-color: $alternate_row_background_color;
+    }
+  }
+}
+
+}

@@ -4,6 +4,21 @@ html, body {
   max-height: 100vh;
   font-size: $font-size;
 }
+.six.columns {
+  margin-left: 0;
+}
+//
+.container {
+    max-width: 1200px;
+
+    @media (min-width: 400px) {
+      width: 100%;
+    }
+}
+//
+// .column.columns {
+//   margin-left: 2px;
+// }
 
 section {
   border: $section-border;

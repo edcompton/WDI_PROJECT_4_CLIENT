@@ -32,9 +32,8 @@ function ChartCtrl($http, API) {
       closeData.push(priceHistory[0][i].Adj_Close);
       dateData.push(priceHistory[0][i].Date);
     }
-    console.log(date);
-    console.log(closeData);
-    console.log(dateData);
+
+    parseDateData(dateData);
     vm.labels = dateData;
     vm.series = ['Adjusted Close', 'Date'];
     vm.data = [
@@ -46,6 +45,8 @@ function ChartCtrl($http, API) {
     };
     vm.datasetOverride = [{ yAxisID: 'y-axis-1' }, { yAxisID: 'y-axis-2' }];
     vm.options = {
+      responsive: true,
+      maintainAspectRatio: true,
       scales: {
         yAxes: [
           {
@@ -63,5 +64,11 @@ function ChartCtrl($http, API) {
         ]
       }
     };
+  }
+
+  function parseDateData(array) {
+    for (var i = 0; i < array.length; i++) {
+      array[i]
+    }
   }
 }
