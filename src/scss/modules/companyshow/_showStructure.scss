@@ -1,0 +1,53 @@
+.six.columns {
+  margin-left: 0;
+}
+//
+.companyShowPage {
+  margin: 0 auto;
+    max-width: 1200px;
+    @media (min-width: 400px) {
+      width: 100%;
+    }
+    clear: both;
+}
+
+.companySummaryPage {
+  height: 295px;
+  overflow-y: scroll;
+}
+
+.newsfeed {
+  height: 340px;
+}
+
+.comparables {
+height: 350px;
+}
+
+.dashboardChart {
+
+}
+
+.chartTabs {
+  display: inline;
+  list-style: none;
+  // padding: 2px 109px;
+  margin: 0 0 0 0;
+  // border: black solid 1px;
+}
+
+.chartList {
+  text-align: center;
+}
+
+pre, blockquote, dl, figure, table, p, ul, ol, form {
+margin-bottom: 0.5rem;
+}
+
+.chartTitling {
+  text-align: center;
+}
+
+.chartButtons {
+  
+}

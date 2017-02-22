@@ -10,7 +10,7 @@
 
 .navBar {
   background-color: none;
-  margin: 0 0 20px 0;
+  margin: 0 0 5px 0;
   padding: 0 0 0 0;
   border: grey solid 1px;
   border-radius: 5px;
@@ -18,15 +18,15 @@
 }
 
 .searchArea {
-  margin: -27px 10px 0 0;
-  // top: 0px;
   float: right;
 }
 
 .searchButton {
   width: 50px;
+  margin-right: 20px;
 }
 
 .searchInput {
   width: 200px;
+  margin-right: 10px;
 }
