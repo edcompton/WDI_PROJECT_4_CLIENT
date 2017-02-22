@@ -1,5 +1,32 @@
 .nav {
   ul {
     float: left;
+    li {
+      margin: 5px 5px;
+      // line-height: normal;
+    }
   }
+}
+
+.navBar {
+  background-color: none;
+  margin: 0 0 20px 0;
+  padding: 0 0 0 0;
+  border: grey solid 1px;
+  border-radius: 5px;
+  height: 50px;
+}
+
+.searchArea {
+  margin: -27px 10px 0 0;
+  // top: 0px;
+  float: right;
+}
+
+.searchButton {
+  width: 50px;
+}
+
+.searchInput {
+  width: 200px;
 }
