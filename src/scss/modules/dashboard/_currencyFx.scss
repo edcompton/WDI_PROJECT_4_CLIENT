@@ -1,0 +1,16 @@
+.fx-matrix {
+  height: 210px;
+  overflow-y: auto;
+  table {
+    padding: $table-padding;
+    margin: $table-margin;
+
+    border-spacing: 4px;
+    // font-size: 1rem;
+
+    th, td {
+      width: 15px;
+      padding: 2px;
+    }
+  }
+}

@@ -14,11 +14,11 @@ function CompanyModelShowCtrl($http, API){
       method: 'GET',
       url: `${API}/companies/model/${ticker}`
     }).then(function successCallback(response) {
-      vm.fs = {};
-      vm.fs.is0 = response.data.is_yearly_results[0];
-      vm.fs.is1 = response.data.is_yearly_results[1];
-      vm.fs.is2 = response.data.is_yearly_results[2];
-      vm.fs.is = [vm.fs.is2, vm.fs.is1, vm.fs.is0];
+      console.log(response);
+      vm.is0 = response.data.is_yearly_results[0];
+      vm.is1 = response.data.is_yearly_results[1];
+      vm.is2 = response.data.is_yearly_results[2];
+      vm.is = [vm.is2, vm.is1, vm.is0];
 
       vm.fs.bs0 = response.data.bs_yearly_results[0];
       vm.fs.bs1 = response.data.bs_yearly_results[1];
@@ -29,7 +29,6 @@ function CompanyModelShowCtrl($http, API){
       vm.fs.cf2 = response.data.cf_yearly_results[2];
       vm.fs.cf = [vm.fs.cf2, vm.fs.cf1, vm.fs.cf0];
 
-      console.log(vm.fs.cf);
     }, function errorCallback(error) {
       console.log(error);
     });

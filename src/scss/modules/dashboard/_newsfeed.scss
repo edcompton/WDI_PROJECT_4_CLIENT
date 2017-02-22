@@ -1,0 +1,17 @@
+.newsfeed {
+  color: red;
+  height: 350px;
+  overflow-y: auto;
+  table {
+    margin: $table-margin;
+    padding: $table-padding;
+    th, td {
+      padding: $table-cell-padding;
+    }
+    thead {
+      th:first-child {
+        width: 110px;
+      }
+    }
+  }
+}
