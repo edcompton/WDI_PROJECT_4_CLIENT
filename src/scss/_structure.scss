@@ -4,6 +4,18 @@ html, body {
   max-height: 100vh;
   font-size: $font-size;
 }
+.six.columns {
+  margin: 0 auto;
+}
+
+.container {
+    max-width: 1200px;
+
+    @media (min-width: 400px) {
+      width: 100%;
+    }
+}
+
 
 section {
   border: $section-border;
@@ -12,10 +24,6 @@ section {
 .row {
   margin: 0 auto;
 }
-
-// main {
-//   min-height: 100%;
-// }
 
 //  To incorporate
 // body {
