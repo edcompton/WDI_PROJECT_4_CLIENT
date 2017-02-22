@@ -1,5 +1,6 @@
 <section class="homepage">
   <div class="row">
+
     <div class="six columns">
       <section class="watchlist">
         <div class="watchlist" ng-controller="companyWatchlistCtrl as watchlist">
@@ -46,11 +47,11 @@
 
               <tr ng-repeat="fx in fxCtrl.currencyData">
                 <td><strong>{{ fx.Symbol.substr(0,3) }}</strong></td>
-                <td>{{ (fx.LastTradePriceOnly).toPrecision(4) }}<br>{{ fx.ChangePips }}</td>
-                <td>{{ fx.crossCurrencies[0] }}<br>{{ fx.crossCurrencyChanges[0] }}</td>
-                <td>{{ fx.crossCurrencies[1] }}<br>{{ fx.crossCurrencyChanges[1] }}</td>
-                <td>{{ fx.crossCurrencies[2] }}<br>{{ fx.crossCurrencyChanges[2] }}</td>
-                <td>{{ fx.crossCurrencies[3] }}<br>{{ fx.crossCurrencyChanges[3] }}</td>
+                <td>{{ (fx.LastTradePriceOnly).toPrecision(4) }}{{ fx.ChangePips }}</td>
+                <td>{{ fx.crossCurrencies[0] }} {{ fx.crossCurrencyChanges[0] }}</td>
+                <td>{{ fx.crossCurrencies[1] }} {{ fx.crossCurrencyChanges[1] }}</td>
+                <td>{{ fx.crossCurrencies[2] }} {{ fx.crossCurrencyChanges[2] }}</td>
+                <td>{{ fx.crossCurrencies[3] }} {{ fx.crossCurrencyChanges[3] }}</td>
               </tr>
             </tbody>
           </table>
@@ -63,54 +64,51 @@
           chart-labels="ChartCtrl.labels" chart-series="ChartCtrl.series" chart-options="ChartCtrl.options"
           chart-dataset-override="ChartCtrl.datasetOverride" chart-click="ChartCtrl.onClick">
         </canvas>
-      </section>
-
-    </div>
-
-
-
-    <div class="row">
-      <div class="six columns">
-        <section class="dashboard watchlist-rss">
-          <div ng-controller="newsfeedCtrl as newsfeed">
-            <div class="watchlistRSS">
-              <table class="u-full-width">
-                <thead>
-                  <tr>
-                    <th>Time</th>
-                    <th>Headline</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr ng-repeat="article in newsfeed.newsItems">
-                    <td>{{ article.pubDate }}</td>
-                    <td><a href="{{ article.link }}">{{ article.title }}</a></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <div class="watchlistRSS">
-              <table class="u-full-width">
-                <thead>
-                  <tr>
-                    <th>Time</th>
-                    <th>Ticker</th>
-                    <th>Filing</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr ng-repeat="filing in newsfeed.filingItems">
-                    <td>{{ filing.date.to_s }}</td>
-                    <td>{{ filing.ticker }}</td>
-                    <td><a href="{{ filing.link }}">{{ filing.title }}</a></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </section>
       </div>
+    </section>
+  </div>
+
+    <div class="six columns">
+      <div ng-controller="newsfeedCtrl as newsfeed">
+          <section class="newsfeed">
+            <table class="u-full-width scrollable">
+              <thead>
+                <tr>
+                  <th>Time</th>
+                  <th>Headline</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="article in newsfeed.newsItems">
+                  <td>{{ article.pubDate }}</td>
+                  <td><a href="{{ article.link }}">{{ article.title }}</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+      <section class="filing-feed">
+        <div class="watchlistRSS">
+          <table class="u-full-width">
+            <caption>Filing Feed</caption>
+            <thead>
+              <tr>
+                <th>Time</th>
+                <th>Ticker</th>
+                <th>Filing</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="filing in newsfeed.filingItems">
+                <td>{{ filing.date.to_s }}</td>
+                <td>{{ filing.ticker }}</td>
+                <td><a href="{{ filing.link }}">{{ filing.title }}</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
     </div>
   </div>
+</div>
+</section>
 </section>
