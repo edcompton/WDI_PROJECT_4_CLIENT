@@ -2,7 +2,7 @@ angular
 .module('financeApp')
 .controller('ChartCtrl', ChartCtrl);
 
-ChartCtrl.$inject = ['$http', 'API']
+ChartCtrl.$inject = ['$http', 'API'];
 
 function ChartCtrl($http, API) {
 
