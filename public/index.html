@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="financeApp">
+<head>
+  <meta charset="utf-8">
+  <title>Angular Stack Setup</title>
+  <base href="/">
+  <!-- inject:js -->
+  <script src="js/app.js"></script>
+  <!-- endinject -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- endinject -->
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+</head>
+<body ng-controller="MainCtrl as main">
+  <header>
+    <section class="nav">
+      <div class="fourteen columns navBar">
+        <nav>
+          <ul class="nav">
+            <li ui-sref="home" class="button navButtons">Home</li>
+            <li ui-sref="login" class="button navButtons" ng-hide="main.user">Login</li>
+            <li ui-sref="register" class="button navButtons" ng-hide="main.user">Register</li>
+            <li class="button navButtons" ng-click="main.logout()" ng-show="main.user">Logout</li>
+          </ul>
+        </nav>
+        <nav>
+          <form class="" action="index.html" method="post">
+
+          <button type="submit" class="searchArea searchButton"></button>
+          <input type="text" name="search" placeholder="search" class="searchArea searchInput">
+        </form>
+        </nav>
+      </div>
+    </section>
+  </header>
+  <main ui-view>
+  </main>
+</body>
