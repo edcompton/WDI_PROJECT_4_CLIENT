@@ -68,10 +68,10 @@ function HomeCtrl($http, API){
     });
   }
 
-  // vm.populateCurrencies(addCrossCurrencies);
-  // getWatchlistRSS();
-  // getSecRSS();
-  // getHistoricalPrices();
+  vm.populateCurrencies(addCrossCurrencies);
+  getWatchlistRSS();
+  getSecRSS();
+  getHistoricalPrices();
 
   getFields();
 
