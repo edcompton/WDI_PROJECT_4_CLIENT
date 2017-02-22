@@ -1,32 +1,13 @@
-// Import all of your scss files here
+// GENERAL
+@import "structure";
+@import "variables";
+
+// PARTIALS
 @import "modules/navbar";
+
+//DASHBOARD-MODULES
 @import "modules/dashboard/chart";
 @import "modules/dashboard/currencyFx";
 @import "modules/dashboard/companyWatchlist";
 @import "modules/dashboard/newsfeed";
-
-// .watchlist {
-//   font-size: 12px;
-// }
-//
-// nav {
-//   li {
-//     display: inline-block;
-//   }
-//
-//   table {
-//     text-align: center;
-//   }
-// }
-//
-// .fxMatrix {
-//   font-size: 12px;
-//   text-align: right;
-//   td {
-//     width: 50px;
-//   }
-// }
-//
-// .income_statement, .balance_sheet, .cash_flow {
-//   font-size: 12px;
-// }
+@import "modules/dashboard/filingFeed";
