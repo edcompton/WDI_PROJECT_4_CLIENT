@@ -5,9 +5,9 @@ html, body {
   font-size: $font-size;
 }
 .six.columns {
-  margin-left: 0;
+  margin: 0 auto;
 }
-//
+
 .container {
     max-width: 1200px;
 
@@ -15,10 +15,7 @@ html, body {
       width: 100%;
     }
 }
-//
-// .column.columns {
-//   margin-left: 2px;
-// }
+
 
 section {
   border: $section-border;
@@ -27,10 +24,6 @@ section {
 .row {
   margin: 0 auto;
 }
-
-// main {
-//   min-height: 100%;
-// }
 
 //  To incorporate
 // body {

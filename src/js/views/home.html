@@ -2,7 +2,10 @@
   <div class="container">
     <div class="row">
       <div class="six columns">
-        <section class="watchlist">
+        <section class="watchlist" resizeable r-directions="['right']">
+          <div class="dashboard title">
+            <p>Watchlist</p>
+          </div>
           <div class="watchlist" ng-controller="companyWatchlistCtrl as watchlist">
             <table class="u-full-width">
               <thead>
@@ -10,7 +13,8 @@
                   <th>Ticker</th>
                   <th>Name</th>
                   <th>Price</th>
-                  <th>% move</th>
+                  <th>% Move</th>
+                  <!-- <th class="table-title">WATCHLIST</th> -->
                 </tr>
               </thead>
               <tbody>
@@ -27,6 +31,9 @@
 
         <section class= "fx-matrix">
           <div ng-controller= "currencyFxCtrl as fxCtrl" ng-show="fxCtrl.fxFinished">
+            <div class="dashboard title">
+              <p>Currency FX</p>
+            </div>
             <table class="u-full-width">
               <thead>
                 <tr>
@@ -57,13 +64,22 @@
             </table>
           </div>
         </section>
-
+        <!--  -->
         <section class="dashboard chart">
-          <div ng-controller="ChartCtrl as ChartCtrl">
-            <canvas id="line" class="chart chart-line" chart-data="ChartCtrl.data"
-            chart-labels="ChartCtrl.labels" chart-series="ChartCtrl.series" chart-options="ChartCtrl.options"
-            chart-dataset-override="ChartCtrl.datasetOverride" chart-click="ChartCtrl.onClick">
-          </canvas>
+          <div>
+            <div class="dashboard title">
+              <button>SHOW PE CHART</button>
+              <button>SHOW EV CHART</button>
+              <p>Chart Title</p>
+            </div>
+            <div ng-controller="ChartCtrl as ChartCtrl">
+              <canvas id="line" class="chart chart-line" chart-data="ChartCtrl.data"
+              chart-series="ChartCtrl.series" chart-options="ChartCtrl.options"
+              chart-labels="ChartCtrl.labels"
+              chart-dataset-override="ChartCtrl.datasetOverride" chart-click="ChartCtrl.onClick">
+            </canvas>
+          </div>
+
         </div>
       </section>
     </div>
