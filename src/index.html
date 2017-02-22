@@ -13,24 +13,26 @@
 <body ng-controller="MainCtrl as main">
   <header>
     <section class="nav">
-      <div class="row">
+      <div class="fourteen columns navBar">
         <nav>
           <ul class="nav">
-            <li ui-sref="home" class="button button-primary">Home</li>
-            <li ui-sref="login" class="button" ng-hide="main.user">Login</li>
-            <li ui-sref="register" class="button" ng-hide="main.user">Register</li>
-            <li class="button" ng-click="main.logout()" ng-show="main.user">Logout</li>
-            <li ui-sref="usersIndex" class="button" ng-show="main.user">Users</li>
+            <li ui-sref="home" class="button navButtons">Home</li>
+            <li ui-sref="login" class="button navButtons" ng-hide="main.user">Login</li>
+            <li ui-sref="register" class="button navButtons" ng-hide="main.user">Register</li>
+            <li class="button navButtons" ng-click="main.logout()" ng-show="main.user">Logout</li>
+            <li ui-sref="usersIndex" class="button navButtons" ng-show="main.user">Users</li>
           </ul>
+        </nav>
+        <nav>
+          <form class="" action="index.html" method="post">
+
+          <button type="submit" class="searchArea searchButton"></button>
+          <input type="text" name="search" placeholder="search" class="searchArea searchInput">
+        </form>
         </nav>
       </div>
     </section>
   </header>
   <main ui-view>
   </main>
-  <footer>
-    <div class="row">
-      <h3>footer</h3>
-    </div>
-  </footer>
 </body>
