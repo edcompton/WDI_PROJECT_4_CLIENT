@@ -13,9 +13,9 @@ function CompanyModelShowCtrl($http, API){
   function getCompanyData() {
     $http({
       method: 'GET',
-      url: `${API}/companies/model`,
-      params: { ticker: `${ticker}` }
+      url: `${API}/companies/model/${ticker}`
     }).then(function successCallback(response) {
+      console.log(response);
       vm.is0 = response.data.is_yearly_results[0];
       vm.is1 = response.data.is_yearly_results[1];
       vm.is2 = response.data.is_yearly_results[2];
@@ -30,7 +30,7 @@ function CompanyModelShowCtrl($http, API){
       vm.cf2 = response.data.cf_yearly_results[2];
       vm.cf = [vm.cf2, vm.cf1, vm.cf0];
 
-      console.log(vm.cf);
+
     }, function errorCallback(error) {
       console.log(error);
     });
