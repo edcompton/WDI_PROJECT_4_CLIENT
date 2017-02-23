@@ -1,15 +1,17 @@
-<div class="row">
-  <div class="three columns">
-<button type="button" name="button" ui-sref='companySummaryShow({ticker: data.tickerParam})' class="modelNavButtons">Summary</button>
-  </div>
-  <div class="three columns">
-<button type="button" name="button" ui-sref="incomeStatement({ticker: data.tickerParam})" class="modelNavButtons">Income Statement</button>
-  </div>
-  <div class="three columns">
-<button type="button" name="button" ui-sref="balanceSheet({ticker: data.tickerParam})" class="modelNavButtons">Balance Sheet</button>
-  </div>
-  <div class="three columns">
-<button type="button" name="button" ui-sref="cashFlow({ticker: data.tickerParam})" class="modelNavButtons">Cash Flow</button>
+<div class="statement-tab container">
+  <div class="row statement-tab-nav">
+    <div class="three columns">
+      <button type="button" name="button" ui-sref='companySummaryShow({ticker: data.tickerParam})' class="modelNavButtons">Summary</button>
+    </div>
+    <div class="three columns">
+      <button type="button" name="button" ui-sref="incomeStatement({ticker: data.tickerParam})" class="modelNavButtons">Income Statement</button>
+    </div>
+    <div class="three columns">
+      <button type="button" name="button" ui-sref="balanceSheet({ticker: data.tickerParam})" class="modelNavButtons">Balance Sheet</button>
+    </div>
+    <div class="three columns">
+      <button type="button" name="button" ui-sref="cashFlow({ticker: data.tickerParam})" class="modelNavButtons">Cash Flow</button>
+    </div>
   </div>
 </div>
 
@@ -17,7 +19,6 @@
 
   <div class="row">
     <div class="six columns">
-
       <section class="companySummaryPage">
         <h5>{{ co.companyName }}</h5>
         <h6>Sector: {{ co.companySector }}</h6>
@@ -44,7 +45,7 @@
               </tr>
             </tbody>
           </table>
-      </div>
+        </div>
       </section>
     </div>
 
@@ -68,38 +69,37 @@
                   <th>PE<br>FY17E</th>
                   <th>PE<br>FY18E</th>
                 </tr>
-            </thead>
-            <tbody>
-              <tr ng-repeat="peer in data.peerData">
-                <td><strong>{{ peer.name.toUpperCase() }}</strong></td>
-                <td>${{ data.peerStockPrices[data.peerData.indexOf(peer)] }}</td>
-                <td>${{ data.peerMarketCaps[data.peerData.indexOf(peer)] }}</td>
-                <td>{{ data.yearEnds[data.peerData.indexOf(peer)] }}</td>
-                <td>{{ data.eps2015[data.peerData.indexOf(peer)] }}</td>
-                <td>{{ data.eps2016[data.peerData.indexOf(peer)] || "" }}</td>
-                <td>{{ data.peerEpsEst[data.peerData.indexOf(peer)].eps_estimate_0 }}</td>
-                <td>{{ data.peerEpsEst[data.peerData.indexOf(peer)].eps_estimate_1 }}</td>
+              </thead>
+              <tbody>
+                <tr ng-repeat="peer in data.peerData">
+                  <td><strong>{{ peer.name.toUpperCase() }}</strong></td>
+                  <td>${{ data.peerStockPrices[data.peerData.indexOf(peer)] }}</td>
+                  <td>${{ data.peerMarketCaps[data.peerData.indexOf(peer)] }}</td>
+                  <td>{{ data.yearEnds[data.peerData.indexOf(peer)] }}</td>
+                  <td>{{ data.eps2015[data.peerData.indexOf(peer)] }}</td>
+                  <td>{{ data.eps2016[data.peerData.indexOf(peer)] || "" }}</td>
+                  <td>{{ data.peerEpsEst[data.peerData.indexOf(peer)].eps_estimate_0 }}</td>
+                  <td>{{ data.peerEpsEst[data.peerData.indexOf(peer)].eps_estimate_1 }}</td>
 
-                <td>{{ (data.peerStockPrices[data.peerData.indexOf(peer)] / data.eps2015[data.peerData.indexOf(peer)]).toFixed(1) + "x" }}</td>
-                <td>{{ (data.peerStockPrices[data.peerData.indexOf(peer)] / data.eps2016[data.peerData.indexOf(peer)]).toFixed(1) + "x" }}</td>
-                <td>{{ (data.peerStockPrices[data.peerData.indexOf(peer)] / data.peerEpsEst[data.peerData.indexOf(peer)].eps_estimate_0).toFixed(1) + "x" }}</td>
-                <td>{{ (data.peerStockPrices[data.peerData.indexOf(peer)] / data.peerEpsEst[data.peerData.indexOf(peer)].eps_estimate_1).toFixed(1) + "x" }}</td>
-              </tr>
-            </tbody>
-          </table>
+                  <td>{{ (data.peerStockPrices[data.peerData.indexOf(peer)] / data.eps2015[data.peerData.indexOf(peer)]).toFixed(1) + "x" }}</td>
+                  <td>{{ (data.peerStockPrices[data.peerData.indexOf(peer)] / data.eps2016[data.peerData.indexOf(peer)]).toFixed(1) + "x" }}</td>
+                  <td>{{ (data.peerStockPrices[data.peerData.indexOf(peer)] / data.peerEpsEst[data.peerData.indexOf(peer)].eps_estimate_0).toFixed(1) + "x" }}</td>
+                  <td>{{ (data.peerStockPrices[data.peerData.indexOf(peer)] / data.peerEpsEst[data.peerData.indexOf(peer)].eps_estimate_1).toFixed(1) + "x" }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section class="dashboardChart">
+          <div ng-controller="CompanyChartCtrl as CompanyChartCtrl">
+            <p class="chartTitling">Price</p>
+            <canvas id="line" class="chart chart-line" chart-data="CompanyChartCtrl.data"
+            chart-labels="CompanyChartCtrl.labels" chart-series="CompanyChartCtrl.series" chart-options="CompanyChartCtrl.options"
+            chart-dataset-override="CompanyChartCtrl.datasetOverride" chart-click="ChartCtrl.onClick">
+          </canvas>
         </div>
-      </div>
-    </section>
-
-    <section class="dashboardChart">
-      <div ng-controller="CompanyChartCtrl as CompanyChartCtrl">
-        <p class="chartTitling">Price</p>
-        <canvas id="line" class="chart chart-line" chart-data="CompanyChartCtrl.data"
-        chart-labels="CompanyChartCtrl.labels" chart-series="CompanyChartCtrl.series" chart-options="CompanyChartCtrl.options"
-        chart-dataset-override="CompanyChartCtrl.datasetOverride" chart-click="ChartCtrl.onClick">
-        </canvas>
-      </div>
-    </section>
+      </section>
+    </div>
   </div>
-</div>
 </section>
+</div>

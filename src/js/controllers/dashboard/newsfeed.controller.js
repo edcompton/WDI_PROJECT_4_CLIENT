@@ -50,7 +50,6 @@ function newsfeedCtrl($http, API) {
       angular.element(this).scrollTop($(this).scrollTop() - e.originalEvent.wheelDeltaY);
       //prevent page fom scrolling
       return false;
-
     });
   }
   // preventOverscroll()

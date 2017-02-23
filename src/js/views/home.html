@@ -1,8 +1,6 @@
-<div class="dashboard container">
+<div ng-controller="ChartCtrl as ChartCtrl" class="dashboard container">
     <div class="row">
-
       <div class="six columns">
-
         <section class="tile watchlist">
           <div class="dashboard title">
             <h6>Watchlist</h6>
@@ -14,6 +12,7 @@
                   <th>Ticker</th>
                   <th>Name</th>
                   <th>Price</th>
+                  <th>Price Data</th>
                   <th>% Move</th>
                   <th>Remove</th>
                   <!-- <th class="table-title">WATCHLIST</th> -->
@@ -21,22 +20,22 @@
               </thead>
               <tbody>
                 <tr ng-repeat="stock in watchlist.stockData">
-                  <td>{{ stock.Symbol }}</td>
+                  <td ng-click="watchlist.goToState(stock.Symbol)"><a>{{ stock.Symbol }}</a></td>
                   <td>{{ stock.Name }}</td>
                   <td>{{ stock.LastTradePriceOnly }}</td>
+                  <td><a ng-click="ChartCtrl.getHistoricalPrices(stock.Symbol)">Chart</a></td>
                   <td>{{ stock.ChangeinPercent }}</td>
-                  <td>-</td>
+                  <td ng-click="watchlist.removeCompany(stock.Symbol)">-</td>
                 </tr>
               </tbody>
             </table>
           </div>
         </section>
-
         <section class="tile dashboard chart">
           <div class="dashboard title">
             <h6>Stock Price</h6>
           </div>
-          <div ng-controller="ChartCtrl as ChartCtrl" class="canvas-container chart">
+          <div class="canvas-container chart">
             <canvas id="line" class="chart chart-line" chart-data="ChartCtrl.data"
             chart-series="ChartCtrl.series" chart-options="ChartCtrl.options"
             chart-labels="ChartCtrl.labels"
@@ -44,11 +43,9 @@
             </canvas>
           </div>
         </section>
-
       </div>
       <div class="six columns">
         <div ng-controller="newsfeedCtrl as newsfeed" class="newsfeed-container">
-
           <section class="tile newsfeed">
             <div class="dashboard title">
               <h6>News Feed</h6>
@@ -70,7 +67,6 @@
               </table>
             </div>
           </section>
-
           <section class= " tile fx-matrix">
             <div class="dashboard title">
               <h6>Fx Matrix</h6>
@@ -105,7 +101,6 @@
               </table>
             </div>
           </section>
-
           <section class="tile filing-feed">
             <div class="dashboard title">
               <h6>Filing Feed</h6>
@@ -129,7 +124,6 @@
               </table>
             </div>
           </section>
-
         </div>
       </div>
     </div>
