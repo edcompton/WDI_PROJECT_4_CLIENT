@@ -20,6 +20,7 @@ console.log("curreCurrentUserService inside companyWatchlistCtrl:", CurrentUserS
 
   vm.removeCompany = function(companyTicker) {
     var index = vm.tickers.indexOf(companyTicker);
+    console.log(index);
     vm.tickers.splice(index, 1)
     // vm.tickers.filter(t => t !== companyTicker);
      $http
