@@ -10,11 +10,21 @@ function companyWatchlistCtrl($http, API, CurrentUserService) {
   var data = CurrentUserService.currentUser;
 
   console.log(data.user);
-  user_id = data.user.id
+  userId = data.user.id
+
+
+  vm.removeCompany = function(companyTicker) {
+     console.log(companyTicker);
+     $http
+      .post(`${API}/watchlists/${userId}/delete/${companyTicker}`)
+      .then(function(res, err) {
+        console.log(res);
+      })
+  }
 
   function fetchWatchlist() {
     $http
-    .get(`${API}/watchlists/${user_id}`)
+    .get(`${API}/watchlists/${userId}`)
     .then(function(res, err) {
       vm.tickers = []
       vm.stockData = []

@@ -23,7 +23,7 @@
                   <td>{{ stock.Name }}</td>
                   <td>{{ stock.LastTradePriceOnly }}</td>
                   <td>{{ stock.ChangeinPercent }}</td>
-                  <td>-</td>
+                  <td ng-click="watchlist.removeCompany(stock.Symbol)">-</td>
                 </tr>
               </tbody>
             </table>
