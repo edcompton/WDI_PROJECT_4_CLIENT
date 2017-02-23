@@ -7,6 +7,7 @@ ChartCtrl.$inject = ['$http', 'API'];
 function ChartCtrl($http, API) {
 
   const vm = this;
+  vm.stockChartTitle = 'S&P 500';
 
   vm.getHistoricalPrices = function(symbol) {
     console.log(symbol, 'symbol');
@@ -22,7 +23,22 @@ function ChartCtrl($http, API) {
     });
   };
 
-  vm.getHistoricalPrices();
+  vm.getInitialPrice = function(symbol) {
+    console.log(symbol, 'symbol');
+    $http({
+      method: 'POST',
+      url: `${API}/historicalprices`,
+      data: ['^GSPC']
+    }).then(function successCallback(response) {
+      console.log(response);
+      vm.priceHistory = response.data.priceHistory;
+      createChart(vm.priceHistory);
+    }, function errorCallback(error) {
+      console.log(error);
+    });
+  };
+
+  vm.getInitialPrice();
 
   function createChart(priceHistory) {
     var date = priceHistory[0][0].Date.split('-').join(' ');
@@ -43,8 +59,12 @@ function ChartCtrl($http, API) {
     vm.onClick = function (points, evt) {
       // console.log(points, evt);
     };
+
     vm.datasetOverride = [{ yAxisID: 'y-axis-1' }, { yAxisID: 'y-axis-2' }];
     vm.options = {
+      tooltips: {
+        enabled: true
+      },
       responsive: true,
       maintainAspectRatio: true,
       scales: {

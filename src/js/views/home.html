@@ -33,12 +33,12 @@
         </section>
         <section class="tile dashboard chart">
           <div class="dashboard title">
-            <h6>Stock Price</h6>
+            <h6>Stock Price - {{ChartCtrl.stockChartTitle}}</h6>
           </div>
           <div class="canvas-container chart">
             <canvas id="line" class="chart chart-line" chart-data="ChartCtrl.data"
             chart-series="ChartCtrl.series" chart-options="ChartCtrl.options"
-            chart-labels="ChartCtrl.labels"
+            chart-labels="ChartCtrl.labels" chart-hover="false" legend="false"
             chart-dataset-override="ChartCtrl.datasetOverride" chart-click="ChartCtrl.onClick">
             </canvas>
           </div>
