@@ -19,13 +19,13 @@
                 </tr>
               </thead>
               <tbody>
-                <tr ng-repeat="stock in watchlist.stockData">
+                <tr ng-repeat="stock in watchlist.stockData track by $index">
                   <td ng-click="watchlist.goToState(stock.Symbol)"><a>{{ stock.Symbol }}</a></td>
                   <td>{{ stock.Name }}</td>
                   <td>{{ stock.LastTradePriceOnly }}</td>
                   <td><a ng-click="ChartCtrl.getHistoricalPrices(stock.Symbol)">Chart</a></td>
                   <td>{{ stock.ChangeinPercent }}</td>
-                  <td ng-click="watchlist.removeCompany(stock.Symbol)">-</td>
+                  <td ng-click="watchlist.removeCompany(stock.Symbol, watchlist.stockData, stock)">-</td>
                 </tr>
               </tbody>
             </table>

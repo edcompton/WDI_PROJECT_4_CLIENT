@@ -20,8 +20,8 @@ function CurrentUserService(TokenService, User, $rootScope) {
     }
   };
   self.clearUser = () => {
-    console.log("clearUser in curent User service is logging out")
-    currentUser = null;
+    console.log('clearUser in curent User service is logging out');
+    self.currentUser = null;
     TokenService.clearToken();
     $rootScope.$broadcast('loggedOut');
   };
