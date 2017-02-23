@@ -1,129 +1,124 @@
-<div class="row">
-  <div class="three columns">
-<button type="button" name="button" ui-sref='companySummaryShow({ticker: data.tickerParam})' class="modelNavButtons">Summary</button>
+<div class="statement-tab container">
+  <div class="row statement-tab-nav">
+    <div class="three columns">
+      <button type="button" name="button" ui-sref='companySummaryShow({ticker: data.tickerParam})' class="modelNavButtons">Summary</button>
+    </div>
+    <div class="three columns">
+      <button type="button" name="button" ui-sref="incomeStatement({ticker: data.tickerParam})" class="modelNavButtons">Income Statement</button>
+    </div>
+    <div class="three columns">
+      <button type="button" name="button" ui-sref="balanceSheet({ticker: data.tickerParam})" class="modelNavButtons">Balance Sheet</button>
+    </div>
+    <div class="three columns">
+      <button type="button" name="button" ui-sref="cashFlow({ticker: data.tickerParam})" class="modelNavButtons">Cash Flow</button>
+    </div>
   </div>
-  <div class="three columns">
-<button type="button" name="button" ui-sref="incomeStatement({ticker: data.tickerParam})" class="modelNavButtons">Income Statement</button>
-  </div>
-  <div class="three columns">
-<button type="button" name="button" ui-sref="balanceSheet({ticker: data.tickerParam})" class="modelNavButtons">Balance Sheet</button>
-  </div>
-  <div class="three columns">
-<button type="button" name="button" ui-sref="cashFlow({ticker: data.tickerParam})" class="modelNavButtons">Cash Flow</button>
-  </div>
-</div>
 
-<section class="companyShowPage">
+  <section class="companyShowPage sheet">
 
-  <div class="row">
-    <div class="six columns">
-
-      <section class="companySummaryPage">
-        <div ng-controller="companyWatchlistCtrl as watchlist" style="float: right;">
+    <div class="row">
+      <div class="six columns">
+        <section class="companySummaryPage">
           <h5>APPLE</h5>
-          <button ng-click="watchlist.addCompany(APPL)" class="add-to-watchlist">Add to watchlist</button>
-
           <h6>Sector: Technology</h6>
           <h6>Market cap: $712bn</h6>
           <h6>Description</h6>
           <p class="description">
             Apple Inc designs, manufactures, & markets mobile communication & media devices, personal computers, & portable digital music players, & sells a variety of related software, services, accessories, networking solutions, & third-party digital content.
           </p>
+        </section>
 
-        </div>
-
-      </section>
-
-      <section class="newsfeed">
-        <div ng-controller="GetFeedsCtrl as feeds">
-          <table class="u-full-width scrollable">
-            <thead>
-              <tr>
-                <th>Time</th>
-                <th>Headline</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr ng-repeat="article in summary.newsItems">
-                <td>{{ feeds.article.pubDate }}</td>
-                <td><a href="{{ feeds.article.link }}">{{ feeds.article.title }}</a></td>
-              </tr>
-            </tbody>
-          </table>
-      </div>
-      </section>
-    </div>
-
-    <div class="six columns">
-      <section class="comparables">
-        <div ng-controller="CompanyDataCtrl as data">
-          <div class="valuation_multiples">
-            <table class="u-full-width">
+        <section class="newsfeed">
+          <div ng-controller="GetFeedsCtrl as feeds">
+            <table class="u-full-width scrollable">
               <thead>
                 <tr>
-                  <th></th>
-                  <th>Stock price</th>
-                  <th>EPS<br>2015</th>
-                  <th>EPS<br>2016</th>
-                  <th>EPS<br>2017</th>
-                  <th>PE<br>2015</th>
-                  <th>PE<br>2016</th>
-                  <th>PE<br>2017</th>
+                  <th>Time</th>
+                  <th>Headline</th>
                 </tr>
-                <!-- <tr>
-                <th></th>
-                <th>Current</th>
-                <th ng-repeat="IS in summary.fs.is">{{ IS.year }}</th>
-                <th>{{ summary.fs.is[summary.fs.is.length - 1].year + 1 + 'E' }}</th>
-                <th>{{ summary.fs.is[summary.fs.is.length - 1].year + 2 + 'E' }}</th>
-              </tr> -->
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Apple</strong></td>
-                <td>{{data.priceHistory[0][0].Adj_Close}}</td>
-                <td>6.49</td>
-                <td>9.28</td>
-                <td>8.35</td>
-                <td>21.1x</td>
-                <td>14.8x</td>
-                <td>16.4x</td>
-              </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="article in summary.newsItems">
+                  <td>{{ feeds.article.pubDate }}</td>
+                  <td><a href="{{ feeds.article.link }}">{{ feeds.article.title }}</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
 
-              <tr><td></td></tr>
+      <div class="six columns">
+        <section class="comparables">
+          <div ng-controller="CompanyDataCtrl as data">
+            <div class="valuation_multiples">
+              <table class="u-full-width">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Stock price</th>
+                    <th>EPS<br>2015</th>
+                    <th>EPS<br>2016</th>
+                    <th>EPS<br>2017</th>
+                    <th>PE<br>2015</th>
+                    <th>PE<br>2016</th>
+                    <th>PE<br>2017</th>
+                  </tr>
+                  <!-- <tr>
+                  <th></th>
+                  <th>Current</th>
+                  <th ng-repeat="IS in summary.fs.is">{{ IS.year }}</th>
+                  <th>{{ summary.fs.is[summary.fs.is.length - 1].year + 1 + 'E' }}</th>
+                  <th>{{ summary.fs.is[summary.fs.is.length - 1].year + 2 + 'E' }}</th>
+                </tr> -->
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Apple</strong></td>
+                  <td>{{data.priceHistory[0][0].Adj_Close}}</td>
+                  <td>6.49</td>
+                  <td>9.28</td>
+                  <td>8.35</td>
+                  <td>21.1x</td>
+                  <td>14.8x</td>
+                  <td>16.4x</td>
+                </tr>
 
-              <tr>
-                <td>Microsoft</td>
-                <td></td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-              </tr>
+                <tr><td></td></tr>
 
-            </tbody>
-          </table>
+                <tr>
+                  <td>Microsoft</td>
+                  <td></td>
+                  <td>xxxx</td>
+                  <td>xxxx</td>
+                  <td>xxxx</td>
+                  <td>xxxx</td>
+                  <td>xxxx</td>
+                  <td>xxxx</td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="dashboardChart">
-      <div>
-        <ul class="chartList">
-          <li class="chartTabs"><button type="button" name="button" class="chartButtons">Price</button></li>
-          <li class="chartTabs"><button type="button" name="button" class="chartButtons">PE</button></li>
-        </ul>
-      </div>
-      <div ng-controller="CompanyChartCtrl as CompanyChartCtrl">
-        <p class="chartTitling">Price</p>
-        <canvas id="line" class="chart chart-line" chart-data="CompanyChartCtrl.data"
-        chart-labels="CompanyChartCtrl.labels" chart-series="CompanyChartCtrl.series" chart-options="CompanyChartCtrl.options"
-        chart-dataset-override="CompanyChartCtrl.datasetOverride" chart-click="ChartCtrl.onClick">
+      <section class="dashboardChart">
+        <div>
+          <ul class="chartList">
+            <li class="chartTabs"><button type="button" name="button" class="chartButtons">Price</button></li>
+            <li class="chartTabs"><button type="button" name="button" class="chartButtons">PE</button></li>
+          </ul>
+        </div>
+        <div ng-controller="CompanyChartCtrl as CompanyChartCtrl">
+          <p class="chartTitling">Price</p>
+          <canvas id="line" class="chart chart-line" chart-data="CompanyChartCtrl.data"
+          chart-labels="CompanyChartCtrl.labels" chart-series="CompanyChartCtrl.series" chart-options="CompanyChartCtrl.options"
+          chart-dataset-override="CompanyChartCtrl.datasetOverride" chart-click="ChartCtrl.onClick">
         </canvas>
       </div>
     </section>
   </div>
 </div>
 </section>
+</div>
