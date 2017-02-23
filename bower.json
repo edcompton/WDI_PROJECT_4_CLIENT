@@ -21,6 +21,7 @@
     "angular-jwt": "^0.1.9",
     "angular-chart.js": "^1.1.1",
     "skeleton": "^2.0.4",
-    "angular-resizable": "^1.2.0"
+    "angular-resizable": "^1.2.0",
+    "angucomplete-alt": "^3.0.0"
   }
 }
