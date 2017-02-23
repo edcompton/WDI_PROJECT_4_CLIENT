@@ -84,10 +84,10 @@
                   <tr>
                     <td><strong>USD</strong></td>
                     <td></td>
-                    <td>{{ (1 / fx.currencyData[0].LastTradePriceOnly).toPrecision(4) }}<br> {{ ((1 / (fx.currencyData[0].LastTradePriceOnly) - (1 / (fx.currencyData[0].LastTradePriceOnly - fx.currencyData[0].Change ))) * 10000).toFixed(0)  }}</td>
-                    <td>{{ (1 / fx.currencyData[1].LastTradePriceOnly).toPrecision(4) }}<br> {{ ((1 / (fx.currencyData[1].LastTradePriceOnly) - (1 / (fx.currencyData[1].LastTradePriceOnly - fx.currencyData[1].Change ))) * 10000).toFixed(0)  }}</td>
-                    <td>{{ (1 / fx.currencyData[2].LastTradePriceOnly).toPrecision(4) }}<br> {{ ((1 / (fx.currencyData[2].LastTradePriceOnly) - (1 / (fx.currencyData[2].LastTradePriceOnly - fx.currencyData[2].Change ))) * 10000).toFixed(0)  }}</td>
-                    <td>{{ (1 / fx.currencyData[3].LastTradePriceOnly).toPrecision(4) }}<br> {{ ((1 / (fx.currencyData[3].LastTradePriceOnly) - (1 / (fx.currencyData[3].LastTradePriceOnly - fx.currencyData[3].Change ))) * 10000).toFixed(0)  }}</td>
+                    <td>{{ (1 / fxCtrl.currencyData[0].LastTradePriceOnly).toPrecision(4) }}<br> {{ ((1 / (fxCtrl.currencyData[0].LastTradePriceOnly) - (1 / (fxCtrl.currencyData[0].LastTradePriceOnly - fxCtrl.currencyData[0].Change ))) * 10000).toFixed(0)  }}</td>
+                    <td>{{ (1 / fxCtrl.currencyData[1].LastTradePriceOnly).toPrecision(4) }}<br> {{ ((1 / (fxCtrl.currencyData[1].LastTradePriceOnly) - (1 / (fxCtrl.currencyData[1].LastTradePriceOnly - fxCtrl.currencyData[1].Change ))) * 10000).toFixed(0)  }}</td>
+                    <td>{{ (1 / fxCtrl.currencyData[2].LastTradePriceOnly).toPrecision(4) }}<br> {{ ((1 / (fxCtrl.currencyData[2].LastTradePriceOnly) - (1 / (fxCtrl.currencyData[2].LastTradePriceOnly - fxCtrl.currencyData[2].Change ))) * 10000).toFixed(0)  }}</td>
+                    <td>{{ (1 / fxCtrl.currencyData[3].LastTradePriceOnly).toPrecision(4) }}<br> {{ ((1 / (fxCtrl.currencyData[3].LastTradePriceOnly) - (1 / (fxCtrl.currencyData[3].LastTradePriceOnly - fxCtrl.currencyData[3].Change ))) * 10000).toFixed(0)  }}</td>
                   </tr>
                   <tr ng-repeat="fx in fxCtrl.currencyData">
                     <td><strong>{{ fx.Symbol.substr(0,3) }}</strong></td>
