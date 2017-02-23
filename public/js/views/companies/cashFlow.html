@@ -19,8 +19,8 @@
     <table class="u-full-width">
       <thead>
         <tr>
-          <th>Cashflow</th>
-          <th ng-repeat="CF in model.cf">{{ CF.year }}</th>
+          <th class="no_border">Cashflow</th>
+          <th ng-repeat="CF in model.cf" class="no_border">{{ CF.year }}</th>
         </tr>
       </thead>
       <tbody>
@@ -61,7 +61,7 @@
           <td ng-repeat="CF in model.cf"><strong>{{ CF.net_cash_from_operating_activities.toLocaleString() }}</strong></td>
         </tr>
 
-        <tr><td></td></tr>
+        <tr><td class="no_border"></td></tr>
 
 
         <tr>
@@ -93,7 +93,7 @@
           <td ng-repeat="CF in model.cf"><strong>{{ CF.net_cash_used_in_investing_activities.toLocaleString() }}</strong></td>
         </tr>
 
-        <tr><td></td></tr>
+        <tr><td class="no_border"></td></tr>
 
         <tr>
           <td class="header">Issuance of stock</td>
@@ -120,7 +120,7 @@
           <td ng-repeat="CF in model.cf"><strong>{{ CF.net_cash_from_financing_activities.toLocaleString() }}</strong></td>
         </tr>
 
-        <tr><td></td></tr>
+        <tr><td class="no_border"></td></tr>
 
         <tr>
           <td class="header">Effect of FX on cash and cash equivalents</td>
