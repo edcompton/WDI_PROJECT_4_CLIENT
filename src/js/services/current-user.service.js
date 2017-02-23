@@ -2,7 +2,7 @@ angular
 .module('financeApp')
 .service('CurrentUserService', CurrentUserService);
 
-CurrentUserService.$inject = ['TokenService', 'User', "$rootScope"];
+CurrentUserService.$inject = ['TokenService', 'User', '$rootScope'];
 
 function CurrentUserService(TokenService, User, $rootScope) {
 
