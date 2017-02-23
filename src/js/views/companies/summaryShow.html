@@ -19,13 +19,19 @@
     <div class="six columns">
 
       <section class="companySummaryPage">
-        <h5>APPLE</h5>
-        <h6>Sector: Technology</h6>
-        <h6>Market cap: $712bn</h6>
-        <h6>Description</h6>
-        <p class="description">
-          Apple Inc designs, manufactures, & markets mobile communication & media devices, personal computers, & portable digital music players, & sells a variety of related software, services, accessories, networking solutions, & third-party digital content.
-        </p>
+        <div ng-controller="companyWatchlistCtrl as watchlist" style="float: right;">
+          <h5>APPLE</h5>
+          <button ng-click="watchlist.addCompany(APPL)" class="add-to-watchlist">Add to watchlist</button>
+
+          <h6>Sector: Technology</h6>
+          <h6>Market cap: $712bn</h6>
+          <h6>Description</h6>
+          <p class="description">
+            Apple Inc designs, manufactures, & markets mobile communication & media devices, personal computers, & portable digital music players, & sells a variety of related software, services, accessories, networking solutions, & third-party digital content.
+          </p>
+
+        </div>
+
       </section>
 
       <section class="newsfeed">

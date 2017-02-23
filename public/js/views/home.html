@@ -13,7 +13,7 @@
                   <th>Name</th>
                   <th>Price</th>
                   <th>% Move</th>
-                  <th ng-click="watchlist.removeCompany(stock.Symbol)">Remove</th>
+                  <th>Remove</th>
                   <!-- <th class="table-title">WATCHLIST</th> -->
                 </tr>
               </thead>
@@ -22,8 +22,8 @@
                   <td ng-click="watchlist.goToState(stock.Symbol)"><a>{{ stock.Symbol }}</a></td>
                   <td>{{ stock.Name }}</td>
                   <td>{{ stock.LastTradePriceOnly }}</td>
-                  <td >{{ stock.ChangeinPercent }}</td>
-                  <td>-</td>
+                  <td>{{ stock.ChangeinPercent }}</td>
+                  <td ng-click="watchlist.removeCompany(stock.Symbol)">-</td>
                 </tr>
               </tbody>
             </table>
