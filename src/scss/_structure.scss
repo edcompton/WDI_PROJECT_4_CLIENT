@@ -1,5 +1,7 @@
 @import "variables";
 html, body {
+  color: #FFF;
+  background-color: $primary-color;
   margin: 0 auto;
   max-height: 100vh;
   font-size: $font-size;
