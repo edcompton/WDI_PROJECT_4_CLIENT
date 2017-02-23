@@ -27,9 +27,7 @@ function newsfeedCtrl($http, API) {
       url: `${API}/filingfeed`,
       data: vm.tickers
     }).then(function successCallback(response) {
-      console.log(response);
       vm.filingItems = response.data.filingItems;
-      console.log(vm.filingItems);
     }, function errorCallback(error) {
       console.log(error);
     });

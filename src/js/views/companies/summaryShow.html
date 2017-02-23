@@ -13,15 +13,15 @@
   </div>
 </div>
 
-<section class="companyShowPage">
+<section class="companyShowPage" ng-controller="CompanyDataCtrl as co">
 
   <div class="row">
     <div class="six columns">
 
-      <section class="companySummaryPage" ng-controller="CompanyDataCtrl as co">
+      <section class="companySummaryPage">
         <h5>{{ co.companyName }}</h5>
         <h6>Sector: {{ co.companySector }}</h6>
-        <h6>Market cap: $712bn</h6>
+        <h6>Market cap: {{ co.marketCap }}</h6>
         <h6>Description</h6>
         <p class="description">
           {{ co.companyDescription }}
@@ -38,9 +38,9 @@
               </tr>
             </thead>
             <tbody>
-              <tr ng-repeat="article in summary.newsItems">
-                <td>{{ feeds.article.pubDate }}</td>
-                <td><a href="{{ feeds.article.link }}">{{ feeds.article.title }}</a></td>
+              <tr ng-repeat="article in feeds.newsItems">
+                <td>{{ article.pubDate }}</td>
+                <td><a href="{{ article.link }}">{{ article.title }}</a></td>
               </tr>
             </tbody>
           </table>
@@ -50,53 +50,41 @@
 
     <div class="six columns">
       <section class="comparables">
-        <div ng-controller="CompanyDataCtrl as data">
+        <div ng-controller="PeerDataCtrl as data">
           <div class="valuation_multiples">
             <table class="u-full-width">
               <thead>
                 <tr>
                   <th></th>
                   <th>Stock price</th>
-                  <th>EPS<br>2015</th>
-                  <th>EPS<br>2016</th>
-                  <th>EPS<br>2017</th>
-                  <th>PE<br>2015</th>
-                  <th>PE<br>2016</th>
-                  <th>PE<br>2017</th>
+                  <th>Market cap</th>
+                  <th>Year end</th>
+                  <th>EPS<br>FY15</th>
+                  <th>EPS<br>FY16</th>
+                  <th>EPS<br>FY17E</th>
+                  <th>EPS<br>FY18E</th>
+                  <th>PE<br>FY15</th>
+                  <th>PE<br>FY16</th>
+                  <th>PE<br>FY17E</th>
+                  <th>PE<br>FY18E</th>
                 </tr>
-                <!-- <tr>
-                <th></th>
-                <th>Current</th>
-                <th ng-repeat="IS in summary.fs.is">{{ IS.year }}</th>
-                <th>{{ summary.fs.is[summary.fs.is.length - 1].year + 1 + 'E' }}</th>
-                <th>{{ summary.fs.is[summary.fs.is.length - 1].year + 2 + 'E' }}</th>
-              </tr> -->
             </thead>
             <tbody>
-              <tr>
-                <td><strong>Apple</strong></td>
-                <td>{{data.priceHistory[0][0].Adj_Close}}</td>
-                <td>6.49</td>
-                <td>9.28</td>
-                <td>8.35</td>
-                <td>21.1x</td>
-                <td>14.8x</td>
-                <td>16.4x</td>
+              <tr ng-repeat="peer in data.peerData">
+                <td><strong>{{ peer.name.toUpperCase() }}</strong></td>
+                <td>${{ data.peerStockPrices[data.peerData.indexOf(peer)] }}</td>
+                <td>${{ data.peerMarketCaps[data.peerData.indexOf(peer)] }}</td>
+                <td>{{ data.yearEnds[data.peerData.indexOf(peer)] }}</td>
+                <td>{{ data.eps2015[data.peerData.indexOf(peer)] }}</td>
+                <td>{{ data.eps2016[data.peerData.indexOf(peer)] || "" }}</td>
+                <td>{{ data.peerEpsEst[data.peerData.indexOf(peer)].eps_estimate_0 }}</td>
+                <td>{{ data.peerEpsEst[data.peerData.indexOf(peer)].eps_estimate_1 }}</td>
+
+                <td>{{ (data.peerStockPrices[data.peerData.indexOf(peer)] / data.eps2015[data.peerData.indexOf(peer)]).toFixed(1) + "x" }}</td>
+                <td>{{ (data.peerStockPrices[data.peerData.indexOf(peer)] / data.eps2016[data.peerData.indexOf(peer)]).toFixed(1) + "x" }}</td>
+                <td>{{ (data.peerStockPrices[data.peerData.indexOf(peer)] / data.peerEpsEst[data.peerData.indexOf(peer)].eps_estimate_0).toFixed(1) + "x" }}</td>
+                <td>{{ (data.peerStockPrices[data.peerData.indexOf(peer)] / data.peerEpsEst[data.peerData.indexOf(peer)].eps_estimate_1).toFixed(1) + "x" }}</td>
               </tr>
-
-              <tr><td></td></tr>
-
-              <tr>
-                <td>Microsoft</td>
-                <td></td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-                <td>xxxx</td>
-              </tr>
-
             </tbody>
           </table>
         </div>
@@ -104,12 +92,6 @@
     </section>
 
     <section class="dashboardChart">
-      <div>
-        <ul class="chartList">
-          <li class="chartTabs"><button type="button" name="button" class="chartButtons">Price</button></li>
-          <li class="chartTabs"><button type="button" name="button" class="chartButtons">PE</button></li>
-        </ul>
-      </div>
       <div ng-controller="CompanyChartCtrl as CompanyChartCtrl">
         <p class="chartTitling">Price</p>
         <canvas id="line" class="chart chart-line" chart-data="CompanyChartCtrl.data"

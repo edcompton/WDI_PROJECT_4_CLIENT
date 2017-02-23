@@ -5,7 +5,6 @@ angular
 companyWatchlistCtrl.$inject = ["$http", "API"];
 function companyWatchlistCtrl($http, API) {
   const vm = this;
-  console.log('im hereee')
   vm.tickers = ['AAPL', 'GOOG', 'KO', 'MMM', 'AXP', 'BA', 'CAT', 'CVX', 'CSCO'];
   vm.stockData = [];
 
