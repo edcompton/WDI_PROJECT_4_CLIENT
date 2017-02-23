@@ -75,4 +75,13 @@ function companyWatchlistCtrl($http, API, CurrentUserService, $location) {
     $location.url(`/company/${symbol}/summary`);
   };
 
+  vm.checkStocks = function(stock) {
+    console.log(typeof stock);
+    if (stock.indexOf('-') >= 0) {
+      return {color: 'red'};
+    }else {
+      return {color: 'green'};
+    }
+  };
+
 }
