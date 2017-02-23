@@ -7,11 +7,8 @@ function companyWatchlistCtrl($http, API, CurrentUserService, $location) {
 
   const vm = this;
 
-  console.log('curreCurrentUserService inside companyWatchlistCtrl:', CurrentUserService);
-  var data = CurrentUserService.currentUser;
-
-  var userId = data.user.id;
-  console.log('inside companyWatchlistCtrl', data.user.id);
+  var data;
+  var userId;
 
   vm.removeCompany = function(companyTicker) {
     var index = vm.tickers.indexOf(companyTicker);
@@ -53,7 +50,20 @@ function companyWatchlistCtrl($http, API, CurrentUserService, $location) {
       }
     });
   }
-  fetchWatchlist();
+
+
+  setTimeout(function(){
+    console.log('curreCurrentUserService inside companyWatchlistCtrl:', CurrentUserService);
+
+    data = CurrentUserService.currentUser;
+
+    userId = data.user.id;
+    console.log('inside companyWatchlistCtrl', data.user.id);
+  }, 500);
+
+  setTimeout(function(){
+    fetchWatchlist();
+  }, 1500);
 
 
   vm.goToState = function(symbol) {

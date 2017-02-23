@@ -16,7 +16,6 @@ function GetFeedsCtrl($http, API, $stateParams){
       method: 'GET',
       url: `${API}/companies/feed/${ticker}`
     }).then(function successCallback(response) {
-      // console.log(response);
       vm.newsItems = response.data.newsItems;
     }, function errorCallback(error) {
       console.log(error);
