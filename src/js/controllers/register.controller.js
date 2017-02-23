@@ -2,16 +2,17 @@ angular
   .module('financeApp')
   .controller('RegisterCtrl', RegisterCtrl);
 
-RegisterCtrl.$inject = ['User', '$rootScope'];
-function RegisterCtrl(User, $rootScope){
+RegisterCtrl.$inject = ['User', '$rootScope', 'CurrentUserService'];
+function RegisterCtrl(User, $rootScope, CurrentUserService) {
   const vm = this;
 
   vm.register = function() {
     User
-      .register(vm.user).$promise
+      .register(vm.user)
+      .$promise
       .then(data => {
-        console.log(data);
-        $rootScope.$broadcast('loggedIn');
+        CurrentUserService.getUser();
+        console.log("register response:", data);
       }, err => {
         console.log(err);
       });

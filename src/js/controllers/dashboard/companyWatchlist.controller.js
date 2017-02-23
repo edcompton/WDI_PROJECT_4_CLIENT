@@ -9,9 +9,8 @@ function companyWatchlistCtrl($http, API, CurrentUserService, $location) {
 
   var data = CurrentUserService.currentUser;
 
-  console.log(data.user);
-  userId = data.user.id
-
+  userId = data.user.id;
+  console.log("inside companyWatchlistCtrl", data.user.id);
   // vm.addCompany = function(stockTicker) {
   //   console.log(stockTicker);
   //   $http

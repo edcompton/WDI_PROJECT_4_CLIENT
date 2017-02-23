@@ -9,7 +9,6 @@ function ChartCtrl($http, API) {
   const vm = this;
 
   vm.getHistoricalPrices = function(symbol) {
-    console.log(symbol, 'symbol');
     $http({
       method: 'POST',
       url: `${API}/historicalprices`,
