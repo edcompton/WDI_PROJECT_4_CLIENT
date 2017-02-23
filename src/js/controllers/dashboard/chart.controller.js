@@ -17,13 +17,13 @@ function ChartCtrl($http, API) {
     }).then(function successCallback(response) {
       vm.priceHistory = response.data.priceHistory;
       createChart(vm.priceHistory);
+      vm.stockChartTitle = symbol;
     }, function errorCallback(error) {
       console.log(error);
     });
   };
 
   vm.getInitialPrice = function(symbol) {
-    console.log(symbol, 'symbol');
     $http({
       method: 'POST',
       url: `${API}/historicalprices`,
