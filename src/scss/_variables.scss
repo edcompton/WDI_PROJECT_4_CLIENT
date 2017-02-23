@@ -28,3 +28,12 @@ $text-color-red: #E5140A;
 
 //line colors
 $line-grey: #9c9c9c;
+
+.clearfix:after {
+visibility: hidden;
+display: block;
+font-size: 0;
+content: " ";
+clear: both;
+height: 0;
+}
