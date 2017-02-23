@@ -6,7 +6,7 @@
 
         <section class="tile watchlist">
           <div class="dashboard title">
-            <p>Watchlist</p>
+            <h6>Watchlist</h6>
           </div>
           <div class="watchlist" ng-controller="companyWatchlistCtrl as watchlist">
             <table class="u-full-width">
@@ -35,11 +35,9 @@
 
         <section class="tile dashboard chart">
           <div class="dashboard title">
-            <!-- <button>SHOW PE CHART</button>
-            <button>SHOW EV CHART</button> -->
-            <p>Chart Title</p>
+            <h6>Stock Price</h6>
           </div>
-          <div ng-controller="ChartCtrl as ChartCtrl" class="canvas-container">
+          <div ng-controller="ChartCtrl as ChartCtrl" class="canvas-container chart">
             <canvas id="line" class="chart chart-line" chart-data="ChartCtrl.data"
             chart-series="ChartCtrl.series" chart-options="ChartCtrl.options"
             chart-labels="ChartCtrl.labels"
@@ -54,27 +52,32 @@
         <div ng-controller="newsfeedCtrl as newsfeed" class="newsfeed-container">
 
           <section class="tile newsfeed">
-            <table class="u-full-width scrollable">
-              <thead>
-                <tr>
-                  <th>Time</th>
-                  <th>Headline</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr ng-repeat="article in newsfeed.newsItems">
-                  <td>{{ article.pubDate }}</td>
-                  <td><a href="{{ article.link }}" target="_blank">{{ article.title }}</a></td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="dashboard title">
+              <h6>News Feed</h6>
+            </div>
+            <div class="newsfeed">
+              <table class="u-full-width scrollable">
+                <thead>
+                  <tr>
+                    <th>Time</th>
+                    <th>Headline</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="article in newsfeed.newsItems">
+                    <td>{{ article.pubDate }}</td>
+                    <td><a href="{{ article.link }}" target="_blank">{{ article.title }}</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </section>
 
           <section class= " tile fx-matrix">
-            <div ng-controller= "currencyFxCtrl as fxCtrl" ng-show="fxCtrl.fxFinished">
-              <div class="dashboard title">
-                <p>Currency FX</p>
-              </div>
+            <div class="dashboard title">
+              <h6>Fx Matrix</h6>
+            </div>
+            <div ng-controller= "currencyFxCtrl as fxCtrl" ng-show="fxCtrl.fxFinished" class="fx-matrix">
               <table class="u-full-width">
                 <thead>
                   <tr>
@@ -106,7 +109,10 @@
           </section>
 
           <section class="tile filing-feed">
-            <div class="watchlistRSS">
+            <div class="dashboard title">
+              <h6>Filing Feed</h6>
+            </div>
+            <div class="watchlistRSS filing-feed">
               <table class="u-full-width">
                 <thead>
                   <tr>
