@@ -48,9 +48,9 @@ function ChartCtrl($http, API) {
       responsive: true,
       maintainAspectRatio: true,
       scales: {
-            xAxes: [{
-                display: false
-            }],
+        xAxes: [{
+          display: false
+        }],
         yAxes: [
           {
             id: 'y-axis-1',
