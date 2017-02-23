@@ -62,7 +62,7 @@
               <tbody>
                 <tr ng-repeat="article in newsfeed.newsItems">
                   <td>{{ article.pubDate }}</td>
-                  <td><a href="{{ article.link }}">{{ article.title }}</a></td>
+                  <td><a href="{{ article.link }}" target="_blank">{{ article.title }}</a></td>
                 </tr>
               </tbody>
             </table>
@@ -117,7 +117,7 @@
                   <tr ng-repeat="filing in newsfeed.filingItems">
                     <td>{{ filing.date.to_s }}</td>
                     <td>{{ filing.ticker }}</td>
-                    <td><a href="{{ filing.link }}">{{ filing.title }}</a></td>
+                    <td><a href="{{ filing.link }}" target="_blank">{{ filing.title }}</a></td>
                   </tr>
                 </tbody>
               </table>

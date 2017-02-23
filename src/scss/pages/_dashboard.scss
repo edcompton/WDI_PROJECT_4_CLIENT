@@ -11,3 +11,12 @@
 section {
   border: 1px solid $line-grey;
 }
+
+@media (min-width: 550px) {
+  .dashboard.container {
+    .six.columns {
+      width: 50%;
+      margin-left: 0;
+    }
+  }
+}
