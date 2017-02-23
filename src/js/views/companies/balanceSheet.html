@@ -97,11 +97,7 @@
       </tr>
       <tr>
         <td>Short-term debt</td>
-        <td ng-repeat="BS in model.bs">{{ BS.short_term_debt.toLocaleString() }}</td>
-      </tr>
-      <tr>
-        <td>Current portion of long-term debt</td>
-        <td ng-repeat="BS in model.bs">{{ BS.current_portion_of_long_term_debt.toLocaleString() }}</td>
+        <td ng-repeat="BS in model.bs">{{ ((BS.short_term_debt || 0) + (BS.current_portion_of_long_term_debt || 0)).toLocaleString() }}</td>
       </tr>
       <tr>
         <td>Current deferred revenue</td>
@@ -159,13 +155,13 @@
         <td>Treasury stock</td>
         <td ng-repeat="BS in model.bs">{{ BS.treasury_stock.toLocaleString() }}</td>
       </tr>
-      <tr>
+      <!-- <tr>
         <td>Minority interest</td>
         <td ng-repeat="BS in model.bs">{{ BS.minority_interest.toLocaleString() }}</td>
-      </tr>
+      </tr> -->
       <tr>
         <td>Other equity</td>
-        <td ng-repeat="BS in model.bs">{{ ( BS.total_equity - (BS.common_stocks_and_paid_in_capital || (BS.stock_value + BS.preferred_stock_value + BS.additional_paid_in_capital)) - BS.retained_earnings - BS.accumulated_other_comprehensive_income - BS.treasury_stock - BS.minority_interest).toLocaleString() }}</td>
+        <td ng-repeat="BS in model.bs">{{ ( BS.total_equity - (BS.common_stocks_and_paid_in_capital || (BS.stock_value + BS.preferred_stock_value + BS.additional_paid_in_capital)) - BS.retained_earnings - BS.accumulated_other_comprehensive_income - BS.treasury_stock).toLocaleString() }}</td>
       </tr>
       <tr>
         <td><strong>Total equity</strong></td>

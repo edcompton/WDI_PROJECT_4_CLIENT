@@ -20,27 +20,36 @@
       border-radius: 0px
     }
 
-    form {
-      margin: 0;
-      float: right;
-      button {
-        float: right;
-      }
+    .search-input {
       input {
-        float: left;
+        border-radius: 0px;
+        float: right;
+        margin: 0;
+        padding: 0;
       }
     }
 
-    input.searchArea.searchInput {
-      border-radius: 0px;
-    }
-
-    .searchArea {
-      margin: 0
-    }
-
-    .searchInput {
-      width: 200px;
-      margin-right: 10px;
-    }
+    // form {
+    //   margin: 0;
+    //   float: right;
+    //   button {
+    //     float: right;
+    //   }
+    //   input {
+    //     float: left;
+    //   }
+    // }
+    //
+    // input.searchArea.searchInput {
+    //   border-radius: 0px;
+    // }
+    //
+    // .searchArea {
+    //   margin: 0
+    // }
+    //
+    // .searchInput {
+    //   width: 200px;
+    //   margin-right: 10px;
+    // }
 }
