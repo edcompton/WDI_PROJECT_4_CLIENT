@@ -20,6 +20,16 @@ function companyWatchlistCtrl($http, API, CurrentUserService, $location) {
     });
   };
 
+  vm.addCompany = function(companyTicker) {
+    console.log(companyTicker);
+    $http
+    .post(`${API}/watchlists/${userId}/add/${companyTicker}`)
+    .then(function(res, err) {
+      if (err) console.log(err);
+      console.log(res);
+    });
+  };
+
   function fetchWatchlist() {
     $http
     .get(`${API}/watchlists/${userId}`)
