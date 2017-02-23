@@ -1,0 +1,25 @@
+.companyShowPage {
+
+  height: 100%;
+
+  section.companySummaryPage {
+    height: calc(50vh - 60px);
+    overflow-y: auto;
+  }
+
+  section.newsfeed {
+    height: calc(50vh - 60px);
+    overflow-y: auto;
+  }
+
+  section.comparables {
+    height: calc(50vh - 60px);
+    overflow-y: auto;
+  }
+
+  section.dashboardChart {
+    height: calc(50vh - 60px);
+    overflow-y: auto;
+  }
+
+}
