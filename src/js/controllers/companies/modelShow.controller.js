@@ -5,7 +5,7 @@ angular
 CompanyModelShowCtrl.$inject = ['$http','API'];
 function CompanyModelShowCtrl($http, API){
   const vm = this;
-  const ticker = 'KO';
+  const ticker = 'MSFT';
 
   getCompanyData();
 

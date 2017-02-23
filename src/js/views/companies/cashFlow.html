@@ -100,7 +100,7 @@
       </tr>
       <tr>
         <td class="header">Net debt issued</td>
-        <td ng-repeat="CF in model.cf">{{ (CF.long_term_debt_raised + CF.long_term_debt_repayments + CF.net_short_term_debt_issued).toLocaleString() }}</td>
+        <td ng-repeat="CF in model.cf">{{ ((CF.total_debt_issued + CF.total_debt_repayments) || (CF.long_term_debt_raised + CF.long_term_debt_repayments + CF.net_short_term_debt_issued)).toLocaleString() }}</td>
       </tr>
       <tr>
         <td class="header">Payment of dividends</td>
