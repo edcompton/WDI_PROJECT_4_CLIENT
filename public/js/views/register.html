@@ -1,20 +1,23 @@
-<h1>Register</h1>
-<form ng-submit="register.register()">
-  <div class="row">
-    <div class="six columns">
-      <div class="form-group">
-        <input class="form-control u-full-width" type="email" name="email" ng-model="register.user.email" placeholder="Email">
+<div class="container register">
+  <h3>Register</h3>
+  <form ng-submit="register.register()">
+    <div class="row">
+      <div class="six columns">
+        <div class="form-group">
+          <input class="form-control u-full-width" type="email" name="email" ng-model="register.user.email" placeholder="Email">
+        </div>
+        <div class="form-group">
+          <input class="form-control u-full-width" type="password" name="password" ng-model="register.user.password" placeholder="Password">
+        </div>
+        <div class="form-group">
+          <input class="form-control u-full-width" type="password" name="passwordConfirmation" ng-model="register.user.password_confirmation" placeholder="Password confirmation">
+        </div>
+        <input class="btn btn-primary" type="submit" value="Submit" />
       </div>
-      <div class="form-group">
-        <input class="form-control u-full-width" type="password" name="password" ng-model="register.user.password" placeholder="Password">
-      </div>
-      <div class="form-group">
-        <input class="form-control u-full-width" type="password" name="passwordConfirmation" ng-model="register.user.password_confirmation" placeholder="Password confirmation">
-      </div>
-      <input class="btn btn-primary" type="submit" value="Submit" />
     </div>
-  </div>
-</form>
+  </form>
+</div>
+
 
 
 <!-- MORE FIELDS IF WE WANT THEM -->
