@@ -1,5 +1,10 @@
-.newsfeed {
-  height: 400px;
+.newsfeed-container {
+  height: 100%;
+}
+
+
+.dashboard .newsfeed {
+  height: 33%;
   overflow-y: auto;
 
   table {

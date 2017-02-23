@@ -1,34 +1,46 @@
 .nav {
-  z-index: 10;
-  height: 50px;
-  ul {
-    float: left;
-    li {
-      margin: 5px 5px;
-      // line-height: normal;
+    border: 0px;
+    border-top: 1px solid $line-grey;
+    border-bottom: 1px solid $line-grey;
+    padding: 10px 0 10px;
+
+    ul {
+      float: left;
+      margin: 0;
+      li {
+        margin: 0px 5px 0px 0px;
+      }
     }
-  }
-}
+    .button.navButtons {
+      border-radius: 0px;
+      color: $text-color-white;
+    }
 
-.navBar {
-  background-color: none;
-  margin: 0 0 5px 0;
-  padding: 0 0 0 0;
-  border: grey solid 1px;
-  border-radius: 5px;
-  height: 50px;
-}
+    button {
+      border-radius: 0px
+    }
 
-.searchArea {
-  float: right;
-}
+    form {
+      margin: 0;
+      float: right;
+      button {
+        float: right;
+      }
+      input {
+        float: left;
+      }
+    }
 
-.searchButton {
-  width: 50px;
-  margin-right: 20px;
-}
+    input.searchArea.searchInput {
+      border-radius: 0px;
+    }
 
-.searchInput {
-  width: 200px;
-  margin-right: 10px;
+    .searchArea {
+      margin: 0
+    }
+
+    .searchInput {
+      width: 200px;
+      margin-right: 10px;
+    }
 }

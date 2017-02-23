@@ -1,19 +1,21 @@
 // GENERAL
-@import "structure";
 @import "variables";
+@import "structure";
+@import "general";
 
 // PARTIALS
 @import "modules/navbar";
+
+//PAGES
+@import "pages/dashboard";
+@import "pages/modelSheets";
 
 //DASHBOARD-MODULES
 @import "modules/dashboard/chart";
 @import "modules/dashboard/currencyFx";
 @import "modules/dashboard/companyWatchlist";
 @import "modules/dashboard/newsfeed";
-
 @import "modules/dashboard/filingFeed";
-@import "pages/modelSheets";
-
 
 //COMPANY-SHOW MODULES
 @import "modules/companyshow/showStructure";
