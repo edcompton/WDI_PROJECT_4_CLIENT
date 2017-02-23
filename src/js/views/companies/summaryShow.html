@@ -19,17 +19,25 @@
     <div class="row">
       <div class="six columns">
         <section class="companySummaryPage">
-          <h5>{{ co.companyName }}</h5>
-          <h6>Sector: {{ co.companySector }}</h6>
-          <h6>Market cap: {{ co.marketCap }}</h6>
-          <h6>Description</h6>
-          <p class="description">
-            {{ co.companyDescription }}
-          </p>
+          <div class="title">
+            <h6>Description</h6>
+          </div>
+          <div class="description">
+            <h5>{{ co.companyName }}</h5>
+            <h6>Sector: {{ co.companySector }}</h6>
+            <h6>Market cap: {{ co.marketCap }}</h6>
+            <h6>Description</h6>
+            <p class="description">
+              {{ co.companyDescription }}
+            </p>
+          </div>
         </section>
 
         <section class="newsfeed">
-          <div ng-controller="GetFeedsCtrl as feeds">
+          <div class="title">
+            <h6>News Feed</h6>
+          </div>
+          <div class="newsfeed" ng-controller="GetFeedsCtrl as feeds">
             <table class="u-full-width scrollable">
               <thead>
                 <tr>
@@ -50,8 +58,10 @@
 
       <div class="six columns">
         <section class="comparables">
-          <div ng-controller="PeerDataCtrl as data">
-            <div class="valuation_multiples">
+          <div class="title">
+            <h6>Valuation Mulitples</h6>
+          </div>
+          <div class="valuation" ng-controller="PeerDataCtrl as data">
               <table class="u-full-width">
                 <thead>
                   <tr>
@@ -90,8 +100,10 @@
             </div>
           </section>
           <section class="dashboardChart">
-            <div ng-controller="CompanyChartCtrl as CompanyChartCtrl">
-              <p class="chartTitling">Price</p>
+            <div class="title">
+              <h6>Price Chart</h6>
+            </div>
+            <div class="price-chart" ng-controller="CompanyChartCtrl as CompanyChartCtrl">
               <canvas id="line" class="chart chart-line" chart-data="CompanyChartCtrl.data"
               chart-labels="CompanyChartCtrl.labels" chart-series="CompanyChartCtrl.series" chart-options="CompanyChartCtrl.options"
               chart-dataset-override="CompanyChartCtrl.datasetOverride" chart-click="ChartCtrl.onClick">

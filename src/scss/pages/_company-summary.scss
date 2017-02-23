@@ -1,25 +1,76 @@
 .companyShowPage {
 
-  height: 100%;
+  height: calc(100vh - 120px);
+
+  section {
+    border: 1px solid $line-grey;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .title {
+    height: 30px;
+    border-bottom: 1px solid $line-grey;
+    padding-left: 10px;
+  }
+
+  h6 {
+    line-height: 30px;
+    margin: 0;
+    padding: 0;
+  }
 
   section.companySummaryPage {
-    height: calc(50vh - 60px);
+    height: calc(50vh - 61px);
     overflow-y: auto;
+    .description {
+      padding-left: 10px;
+    }
+    p.description {
+      padding: 0;
+      margin: 0;
+    }
   }
 
   section.newsfeed {
-    height: calc(50vh - 60px);
-    overflow-y: auto;
+    height: calc(50vh - 61px);
+    .newsfeed {
+      overflow-y: auto;
+    }
+    tr:nth-child(even) {
+      background-color: $alternate_row_background_color;
+    }
+    td {
+      border: none;
+    }
   }
 
   section.comparables {
-    height: calc(50vh - 60px);
-    overflow-y: auto;
+    height: calc(50vh - 61px);
+    .valuation {
+      overflow: auto;
+    }
   }
 
   section.dashboardChart {
-    height: calc(50vh - 60px);
-    overflow-y: auto;
+    height: calc(50vh - 61px);
+    .price-chart {
+      overflow-y: auto;
+      height: 100%;
+    }
+    canvas {
+      height: 100%;
+      width: 100%;
+    }
   }
 
+}
+
+@media (min-width: 550px) {
+  .companyShowPage {
+    .six.columns {
+      width: 50%;
+      margin-left: 0;
+    }
+  }
 }

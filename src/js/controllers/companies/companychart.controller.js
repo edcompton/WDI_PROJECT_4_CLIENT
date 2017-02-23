@@ -46,7 +46,14 @@ function CompanyChartCtrl($http, API, $stateParams){
     };
     vm.datasetOverride = [{ yAxisID: 'y-axis-1' }, { yAxisID: 'y-axis-2' }];
     vm.options = {
+      responsive: true,
+      maintainAspectRatio: false,
       scales: {
+        xAxes: [
+          {
+            display: false
+          }
+        ],
         yAxes: [
           {
             id: 'y-axis-1',
