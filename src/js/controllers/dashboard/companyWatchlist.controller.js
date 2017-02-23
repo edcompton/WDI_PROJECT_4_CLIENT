@@ -11,15 +11,19 @@ function companyWatchlistCtrl($http, API, CurrentUserService, $location) {
   var userId;
 
   vm.removeCompany = function(companyTicker) {
-    var index = vm.tickers.indexOf(companyTicker);
-    console.log(companyTicker);
-    console.log(vm.tickers);
-    vm.tickers.splice(index, 1);
-    console.log(vm.tickers);
-    // vm.tickers.filter(t => t !== companyTicker);
-
+    vm.tickers.filter(t => t !== companyTicker);
     $http
     .post(`${API}/watchlists/${userId}/delete/${companyTicker}`)
+    .then(function(res, err) {
+      if (err) console.log(err);
+      console.log(res);
+    });
+  };
+
+  vm.addCompany = function(companyTicker) {
+    console.log(companyTicker);
+    $http
+    .post(`${API}/watchlists/${userId}/add/${companyTicker}`)
     .then(function(res, err) {
       if (err) console.log(err);
       console.log(res);
@@ -51,6 +55,7 @@ function companyWatchlistCtrl($http, API, CurrentUserService, $location) {
     });
   }
 
+
   setTimeout(function(){
     console.log('curreCurrentUserService inside companyWatchlistCtrl:', CurrentUserService);
 
@@ -68,6 +73,15 @@ function companyWatchlistCtrl($http, API, CurrentUserService, $location) {
   vm.goToState = function(symbol) {
     console.log(symbol);
     $location.url(`/company/${symbol}/summary`);
+  };
+
+  vm.checkStocks = function(stock) {
+    console.log(typeof stock);
+    if (stock.indexOf('-') >= 0) {
+      return {color: 'red'};
+    }else {
+      return {color: 'green'};
+    }
   };
 
 }

@@ -1,24 +1,30 @@
 <div class="statement-tab container">
   <div class="row statement-tab-nav">
+
     <div class="three columns">
       <button type="button" name="button" ui-sref='companySummaryShow({ticker: data.tickerParam})' class="modelNavButtons">Summary</button>
     </div>
+
     <div class="three columns">
       <button type="button" name="button" ui-sref="incomeStatement({ticker: data.tickerParam})" class="modelNavButtons">Income Statement</button>
     </div>
+
     <div class="three columns">
       <button type="button" name="button" ui-sref="balanceSheet({ticker: data.tickerParam})" class="modelNavButtons">Balance Sheet</button>
     </div>
+
     <div class="three columns">
       <button type="button" name="button" ui-sref="cashFlow({ticker: data.tickerParam})" class="modelNavButtons">Cash Flow</button>
     </div>
+
   </div>
 
   <section class="companyShowPage" ng-controller="CompanyDataCtrl as co">
 
+
     <div class="row">
       <div class="six columns">
-        <section class="companySummaryPage">
+        <section class="companySummaryPage" ng-controller="companyWatchlistCtrl as watchlist">
           <div class="title">
             <h6>Description</h6>
           </div>
