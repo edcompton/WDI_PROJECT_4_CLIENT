@@ -21,7 +21,7 @@
               </thead>
               <tbody>
                 <tr ng-repeat="stock in watchlist.stockData">
-                  <td>{{ stock.Symbol }}</td>
+                  <td ng-click="watchlist.goToState(stock.Symbol)"><a>{{ stock.Symbol }}</a></td>
                   <td>{{ stock.Name }}</td>
                   <td>{{ stock.LastTradePriceOnly }}</td>
                   <td>{{ stock.ChangeinPercent }}</td>
