@@ -24,7 +24,7 @@
                   <td>{{ stock.Name }}</td>
                   <td>{{ stock.LastTradePriceOnly }}</td>
                   <td><a ng-click="ChartCtrl.getHistoricalPrices(stock.Symbol)">Chart</a></td>
-                  <td>{{ stock.ChangeinPercent }}</td>
+                  <td ng-style="watchlist.checkStocks(stock.ChangeinPercent)">{{ stock.ChangeinPercent }}</td>
                   <td ng-click="watchlist.removeCompany(stock.Symbol)">-</td>
                 </tr>
               </tbody>
