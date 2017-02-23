@@ -6,6 +6,5 @@ angular
   'chart.js',
   'ui.router',
   'ngResource',
-  'angular-jwt',
-  'angularResizable'
+  'angular-jwt'
 ]);

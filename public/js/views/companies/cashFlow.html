@@ -1,0 +1,134 @@
+<div class="row">
+  <div class="three columns">
+<button type="button" name="button" ui-sref="modelSummary" class="modelNavButtons">Summary</button>
+  </div>
+  <div class="three columns">
+<button type="button" name="button" ui-sref="incomeStatement" class="modelNavButtons">Income Statement</button>
+  </div>
+  <div class="three columns">
+<button type="button" name="button" ui-sref="balanceSheet" class="modelNavButtons">Balance Sheet</button>
+  </div>
+  <div class="three columns">
+<button type="button" name="button" ui-sref="cashFlow" class="modelNavButtons">Cash Flow</button>
+  </div>
+</div>
+
+<div class="cash_flow">
+  <table class="u-full-width">
+    <thead>
+      <tr>
+        <th></th>
+        <th ng-repeat="CF in model.cf">{{ CF.year }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="header">Net income</td>
+        <td ng-repeat="CF in model.cf">{{ CF.net_income.toLocaleString() }}</td>
+      </tr>
+      <tr>
+        <td class="header">Depreciation and amortisation</td>
+        <td ng-repeat="CF in model.cf">{{ (CF.d_and_a + CF.amortisation).toLocaleString() }}</td>
+      </tr>
+      <tr>
+        <td class="header">Stock compensation</td>
+        <td ng-repeat="CF in model.cf">{{ CF.share_compensation.toLocaleString() }}</td>
+      </tr>
+      <tr>
+        <td class="header">Deferred tax</td>
+        <td ng-repeat="CF in model.cf">{{ CF.deferred_tax.toLocaleString() }}</td>
+      </tr>
+      <tr>
+        <td class="header">Change in inventories</td>
+        <td ng-repeat="CF in model.cf">{{ CF.inventories.toLocaleString() }}</td>
+      </tr>
+      <tr>
+        <td class="header">Change in receivables</td>
+        <td ng-repeat="CF in model.cf">{{ CF.receivables.toLocaleString() }}</td>
+      </tr>
+      <tr>
+        <td class="header">Change in payables</td>
+        <td ng-repeat="CF in model.cf">{{ CF.payables.toLocaleString() }}</td>
+      </tr>
+      <tr>
+        <td class="header">Other operating activities</td>
+        <td ng-repeat="CF in model.cf">{{ (CF.net_cash_from_operating_activities - CF.net_income - CF.d_and_a - CF.amortisation - CF.share_compensation - CF.deferred_tax - CF.inventories - CF.receivables - CF.payables).toLocaleString() }}</td>
+      </tr>
+      <tr>
+        <td class="header"><strong>Net cash from operating activities</strong></td>
+        <td ng-repeat="CF in model.cf"><strong>{{ CF.net_cash_from_operating_activities.toLocaleString() }}</strong></td>
+      </tr>
+
+      <tr><td></td></tr>
+
+
+      <tr>
+        <td class="header">Capex</td>
+        <td ng-repeat="CF in model.cf">{{ CF.capex.toLocaleString() }}</td>
+      </tr>
+      <tr>
+        <td class="header">Disposal of PPE</td>
+        <td ng-repeat="CF in model.cf">{{ CF.disposal_of_ppe.toLocaleString() }}</td>
+      </tr>
+      <tr>
+        <td class="header">Net purchases of marketable securities</td>
+        <td ng-repeat="CF in model.cf">{{ (CF.proceeds_from_maturities_of_marketable_securities + CF.proceeds_from_sales_of_marketable_securities + CF.purchases_of_marketable_securities).toLocaleString() }}</td>
+      </tr>
+      <tr>
+        <td class="header">Acquisitions</td>
+        <td ng-repeat="CF in model.cf">{{ CF.acquisitions.toLocaleString() }}</td>
+      </tr>
+      <tr>
+        <td class="header">Disposals</td>
+        <td ng-repeat="CF in model.cf">{{ CF.disposals.toLocaleString() }}</td>
+      </tr>
+      <tr>
+        <td class="header">Other investing activities</td>
+        <td ng-repeat="CF in model.cf">{{ (CF.net_cash_used_in_investing_activities - CF.capex - CF.disposal_of_ppe - (CF.proceeds_from_maturities_of_marketable_securities + CF.proceeds_from_sales_of_marketable_securities + CF.purchases_of_marketable_securities) - CF.acquisitions - CF.disposals).toLocaleString() }}</td>
+      </tr>
+      <tr>
+        <td class="header"><strong>Net cash from investing activities</strong></td>
+        <td ng-repeat="CF in model.cf"><strong>{{ CF.net_cash_used_in_investing_activities.toLocaleString() }}</strong></td>
+      </tr>
+
+      <tr><td></td></tr>
+
+      <tr>
+        <td class="header">Issuance of stock</td>
+        <td ng-repeat="CF in model.cf">{{ CF.issuance_of_stock.toLocaleString() }}</td>
+      </tr>
+      <tr>
+        <td class="header">Net debt issued</td>
+        <td ng-repeat="CF in model.cf">{{ ((CF.total_debt_issued + CF.total_debt_repayments) || (CF.long_term_debt_raised + CF.long_term_debt_repayments + CF.net_short_term_debt_issued)).toLocaleString() }}</td>
+      </tr>
+      <tr>
+        <td class="header">Payment of dividends</td>
+        <td ng-repeat="CF in model.cf">{{ CF.payment_of_dividends.toLocaleString() }}</td>
+      </tr>
+      <tr>
+        <td class="header">Stock repurchases</td>
+        <td ng-repeat="CF in model.cf">{{ CF.stock_repurchases.toLocaleString() }}</td>
+      </tr>
+      <tr>
+        <td class="header">Other financing activities</td>
+        <td ng-repeat="CF in model.cf">{{ (CF.net_cash_from_financing_activities - CF.issuance_of_stock - CF.payment_of_dividends - CF.stock_repurchases).toLocaleString() }}</td>
+      </tr>
+      <tr>
+        <td class="header"><strong>Net cash from financing activities</strong></td>
+        <td ng-repeat="CF in model.cf"><strong>{{ CF.net_cash_from_financing_activities.toLocaleString() }}</strong></td>
+      </tr>
+
+      <tr><td></td></tr>
+
+      <tr>
+        <td class="header">Effect of FX on cash and cash equivalents</td>
+        <td ng-repeat="CF in model.cf">{{ CF.effect_of_fx_on_cash_and_cash_equicalents.toLocaleString() }}</td>
+      </tr>
+      <tr>
+        <td class="header"><strong>NET CHANGE IN CASH</strong></td>
+        <td ng-repeat="CF in model.cf"><strong>{{ CF.net_change_in_cash.toLocaleString() }}</strong></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
