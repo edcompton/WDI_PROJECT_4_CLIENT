@@ -2,8 +2,8 @@ angular
 .module('financeApp')
 .controller('companyWatchlistCtrl', companyWatchlistCtrl)
 
-companyWatchlistCtrl.$inject = ["$http", "API", "CurrentUserService"];
-function companyWatchlistCtrl($http, API, CurrentUserService) {
+companyWatchlistCtrl.$inject = ["$http", "API", "CurrentUserService", "$location"];
+function companyWatchlistCtrl($http, API, CurrentUserService, $location) {
 
   const vm = this;
 
@@ -11,7 +11,6 @@ function companyWatchlistCtrl($http, API, CurrentUserService) {
 
   console.log(data.user);
   userId = data.user.id
-
 
   vm.removeCompany = function(companyTicker) {
      console.log(companyTicker);
@@ -47,4 +46,11 @@ function companyWatchlistCtrl($http, API, CurrentUserService) {
     });
   }
   fetchWatchlist()
+
+
+  vm.goToState = function(symbol) {
+    console.log(symbol);
+    $location.url(`/company/${symbol}/summary`);
+  };
+
 }

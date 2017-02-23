@@ -7,7 +7,7 @@ function MainCtrl($rootScope, CurrentUserService, $state, $location){
 
   const vm = this;
 
-  vm.tickers = [{ticker: 'AAPL', description: 'Apple'}, {ticker: 'GOOG', description: 'Google'}];
+  vm.tickers = [{ticker: 'Apple', description: 'AAPL'}, {ticker: 'Google', description: 'GOOG'}, {ticker: 'Coca Cola', description: 'KO'}, {ticker: 'Procter & Gamble', description: 'PG'}, {ticker: 'Microsoft', description: 'MSFT'}];
   vm.user = CurrentUserService.getUser();
 
   $rootScope.$on('loggedIn', () => {
@@ -38,8 +38,10 @@ function MainCtrl($rootScope, CurrentUserService, $state, $location){
   };
 
   vm.searchTicker = function(ticker) {
-    console.log(ticker.title);
-    $location.url(`/company/${ticker.title}/model`);
+    console.log(ticker.description);
+    $location.url(`/company/${ticker.description}/summary`);
   };
+
+
 
 }

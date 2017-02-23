@@ -2,10 +2,12 @@ angular
 .module('financeApp')
 .controller('GetFeedsCtrl', GetFeedsCtrl);
 
-GetFeedsCtrl.$inject = ['$http','API'];
-function GetFeedsCtrl($http, API){
+GetFeedsCtrl.$inject = ['$http','API', '$stateParams'];
+function GetFeedsCtrl($http, API, $stateParams){
   const vm = this;
-  const ticker = 'AAPL';
+  vm.tickerParam = $stateParams.ticker.toString();
+  const ticker = vm.tickerParam;
+
 
   getFeed();
 
@@ -14,7 +16,7 @@ function GetFeedsCtrl($http, API){
       method: 'GET',
       url: `${API}/companies/feed/${ticker}`
     }).then(function successCallback(response) {
-      console.log(response);
+      // console.log(response);
       vm.newsItems = response.data.newsItems;
     }, function errorCallback(error) {
       console.log(error);

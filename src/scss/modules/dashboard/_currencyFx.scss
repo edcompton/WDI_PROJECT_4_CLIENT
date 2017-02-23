@@ -1,6 +1,10 @@
-.dashboard .fx-matrix {
-  height: 33%;
-  overflow-y: auto;
+.dashboard section.fx-matrix {
+  height: 40%;
+
+  div.fx-matrix {
+    height: calc(100% - 30px);
+    // overflow-y: auto;
+  }
   table {
     padding: $table-padding;
     margin: $table-margin;

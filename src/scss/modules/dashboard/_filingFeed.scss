@@ -1,6 +1,11 @@
-.dashboard .filing-feed {
-  height: 33%;
-  overflow-y: auto;
+.dashboard section.filing-feed {
+  height: 27%;
+
+
+  div.filing-feed {
+    height: calc(100% - 30px);
+    overflow-y: auto;
+  }
 
   table {
     table-layout: fixed;
@@ -16,6 +21,7 @@
     td:nth-child(3), th:nth-child(3) { width: $column_three_width; }
 
     thead {
+      border-bottom: 1px solid #E1E1E1;
       tr {
         display: block;
         position: relative;
