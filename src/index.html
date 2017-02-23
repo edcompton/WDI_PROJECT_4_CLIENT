@@ -9,6 +9,7 @@
   <!-- inject:css -->
   <!-- endinject -->
   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
 </head>
 <body ng-controller="MainCtrl as main">
   <header>
@@ -23,10 +24,19 @@
           </ul>
         </nav>
         <nav>
-          <form class="" action="index.html" method="post">
-          <button type="submit" class="searchArea searchButton"></button>
-          <input type="text" name="search" placeholder="search" class="searchArea searchInput">
-        </form>
+          <angucomplete-alt class="searchArea searchInput"
+          id="ex2"
+              placeholder="Search tickers"
+              pause="300"
+              selected-object="main.searchTicker"
+              local-data="main.tickers"
+              local-search="main.localSearch"
+              title-field="ticker"
+              description-field="description"
+              image-field="pic"
+              minlength="1"
+              input-class="form-control form-control-small"
+              match-class="highlight" />
         </nav>
       </div>
     </section>

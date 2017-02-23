@@ -26,6 +26,12 @@ function homeRouter($stateProvider, $locationProvider, $urlRouterProvider){
     controller: 'LoginCtrl',
     controllerAs: 'login'
   })
+  .state('companySummaryShow', {
+    url: '/company/:ticker/summary',
+    templateUrl: '/js/views/companies/summaryShow.html',
+    controller: 'CompanyDataCtrl',
+    controllerAs: 'data'
+  })
   .state('incomeStatement', {
     url: '/company/:ticker/model',
     templateUrl: '/js/views/companies/incomeStatement.html',
@@ -43,12 +49,6 @@ function homeRouter($stateProvider, $locationProvider, $urlRouterProvider){
     templateUrl: '/js/views/companies/cashFlow.html',
     controller: 'CompanyModelShowCtrl',
     controllerAs: 'model'
-  })
-  .state('companySummaryShow', {
-    url: '/company/:ticker/summary',
-    templateUrl: '/js/views/companies/summaryShow.html',
-    controller: 'CompanyDataCtrl',
-    controllerAs: 'data'
   })
   .state('usersIndex', {
     url: '/users',
