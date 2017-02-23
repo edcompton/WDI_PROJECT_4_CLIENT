@@ -1,6 +1,6 @@
 <div class="row">
   <div class="three columns">
-<button type="button" name="button" ui-sref="modelSummary" class="modelNavButtons">Summary</button>
+<button type="button" name="button" ui-sref='companySummaryShow' class="modelNavButtons">Summary</button>
   </div>
   <div class="three columns">
 <button type="button" name="button" ui-sref="incomeStatement" class="modelNavButtons">Income Statement</button>
@@ -12,6 +12,7 @@
 <button type="button" name="button" ui-sref="cashFlow" class="modelNavButtons">Cash Flow</button>
   </div>
 </div>
+
 
 <div class="balance_sheet">
   <table class="u-full-width">
@@ -83,6 +84,10 @@
       <tr><td></td></tr>
 
       <tr>
+        <td>Accounts payable and accrued expenses</td>
+        <td ng-repeat="BS in model.bs">{{ BS.accounts_payable_and_accrued_expenses.toLocaleString() }}</td>
+      </tr>
+      <tr>
         <td>Accounts payable</td>
         <td ng-repeat="BS in model.bs">{{ BS.accounts_payable.toLocaleString() }}</td>
       </tr>
@@ -125,22 +130,22 @@
       </tr>
       <tr>
         <td>Other non-current liabilities</td>
-        <td ng-repeat="BS in model.bs">{{ (BS.total_liabilities - BS.current_liabilities - BS.long_term_debt - BS.non_current_deferred_revenue - BS.deferred_tax_liabilities).toLocaleString() }}</td>
+        <td ng-repeat="BS in model.bs">{{ ((BS.total_liabilities_and_equity - BS.total_equity) - BS.total_current_liabilities - BS.long_term_debt - BS.non_current_deferred_revenue - BS.deferred_tax_liabilities).toLocaleString() }}</td>
       </tr>
       <tr>
         <td><strong>Total non-current liabilities</strong></td>
-        <td ng-repeat="BS in model.bs"><strong>{{ (BS.total_liabilities - BS.current_liabilities).toLocaleString() }}</strong></td>
+        <td ng-repeat="BS in model.bs"><strong>{{ ((BS.total_liabilities_and_equity - BS.total_equity) - BS.total_current_liabilities).toLocaleString() }}</strong></td>
       </tr>
       <tr>
         <td><strong>Total liabilities</strong></td>
-        <td ng-repeat="BS in model.bs"><strong>{{ BS.total_liabilities.toLocaleString() }}</strong></td>
+        <td ng-repeat="BS in model.bs"><strong>{{ (BS.total_liabilities_and_equity - BS.total_equity).toLocaleString() }}</strong></td>
       </tr>
 
       <tr><td></td></tr>
 
       <tr>
         <td>Stock value and paid-in capital</td>
-        <td ng-repeat="BS in model.bs">{{ (BS.stock_value + BS.preferred_stock_value + BS.additional_paid_in_capital).toLocaleString() }}</td>
+        <td ng-repeat="BS in model.bs">{{ (BS.common_stocks_and_paid_in_capital || (BS.stock_value + BS.preferred_stock_value + BS.additional_paid_in_capital)).toLocaleString() }}</td>
       </tr>
       <tr>
         <td>Retained earnings</td>
@@ -160,11 +165,11 @@
       </tr>
       <tr>
         <td>Other equity</td>
-        <td ng-repeat="BS in model.bs">{{ ( BS.total_liabilities_and_equity - BS.total_liabilities - BS.stock_value - BS.preferred_stock_value - BS.additional_paid_in_capital - BS.retained_earnings - BS.accumulated_other_comprehensive_income - BS.treasury_stock - BS.minority_interest).toLocaleString() }}</td>
+        <td ng-repeat="BS in model.bs">{{ ( BS.total_equity - (BS.common_stocks_and_paid_in_capital || (BS.stock_value + BS.preferred_stock_value + BS.additional_paid_in_capital)) - BS.retained_earnings - BS.accumulated_other_comprehensive_income - BS.treasury_stock - BS.minority_interest).toLocaleString() }}</td>
       </tr>
       <tr>
         <td><strong>Total equity</strong></td>
-        <td ng-repeat="BS in model.bs"><strong>{{ ( BS.total_liabilities_and_equity - BS.total_liabilities).toLocaleString() }}</strong></td>
+        <td ng-repeat="BS in model.bs"><strong>{{ BS.total_equity.toLocaleString() }}</strong></td>
       </tr>
       <tr>
         <td><strong>Total liabilities and equity</strong></td>

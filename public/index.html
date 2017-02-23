@@ -15,24 +15,36 @@
 <body ng-controller="MainCtrl as main">
   <header>
     <section class="nav">
-      <div class="row">
-        <nav>
-          <ul class="nav">
-            <li ui-sref="home" class="button button-primary" ng-show="main.user">Home</li>
-            <li ui-sref="login" class="button" ng-hide="main.user">Login</li>
-            <li ui-sref="register" class="button" ng-hide="main.user">Register</li>
-            <li class="button" ng-click="main.logout()" ng-show="main.user">Logout</li>
-            <li ui-sref="usersIndex" class="button" ng-show="main.user">Users</li>
-          </ul>
-        </nav>
+      <div class="container">
+        <div class="twelve columns navBar">
+          <nav class="clearfix">
+            <ul>
+              <li ui-sref="home" class="button navButtons">Home</li>
+              <li ui-sref="login" class="button navButtons" ng-hide="main.user">Login</li>
+              <li ui-sref="register" class="button navButtons" ng-hide="main.user">Register</li>
+              <li class="button navButtons" ng-click="main.logout()" ng-show="main.user">Logout</li>
+            </ul>
+            <form class="" action="index.html" method="post">
+              <button type="submit" class="searchArea searchButton"></button>
+              <input type="text" name="search" placeholder="search" class="searchArea searchInput">
+            </form>
+            <!-- <angucomplete-alt
+              class="searchArea searchInput"
+              id="ex1"
+              placeholder="Search countries"
+              pause="100"
+              selected-object="selectedCountry"
+              local-data="countries"
+              search-fields="name"
+              title-field="name"
+              minlength="1"
+              input-class="form-control form-control-small"
+            /> -->
+          </nav>
+        </div>
       </div>
     </section>
   </header>
   <main ui-view>
   </main>
-  <footer>
-    <div class="row">
-      <h3>footer</h3>
-    </div>
-  </footer>
 </body>
