@@ -1,3 +1,8 @@
+// COLORS
+
+//background color
+$primary-color: #1E1E29;
+
 // TABLES
 $table-cell-padding: 2px;
 $table-padding: 10px;
@@ -5,7 +10,7 @@ $table-margin: 5px;
 
 $header_background_color: red;
 $header_text_color: #FDFDFD;
-$alternate_row_background_color: #DDD;
+$alternate_row_background_color: #444;
 
 $column_one_width: 100px;
 $column_two_width: 200px;
@@ -14,4 +19,21 @@ $table_body_height: 400px;
 
 // Dashboard
 $font-size: 0.8rem;
-$section-border: 0.1rem solid black;
+$section-border: 0.1rem solid #EFE;
+
+//text colors
+$text-color-white: #fff;
+$text-color-green: #2AE50A;
+$text-color-red: #E5140A;
+
+//line colors
+$line-grey: #9c9c9c;
+
+.clearfix:after {
+visibility: hidden;
+display: block;
+font-size: 0;
+content: " ";
+clear: both;
+height: 0;
+}

@@ -1,0 +1,28 @@
+.dashboard.container {
+  height: calc(100vh - 60px);
+  .row {
+    height: 100%;
+  }
+  .columns {
+    height: 100%;
+  }
+  section {
+    border: 1px solid $line-grey;
+    box-sizing: border-box;
+  }
+  table {
+    height: 100%;
+    margin: 0;
+    box-sizing: border-box;
+  }
+}
+
+
+@media (min-width: 550px) {
+  .dashboard.container {
+    .six.columns {
+      width: 50%;
+      margin-left: 0;
+    }
+  }
+}
