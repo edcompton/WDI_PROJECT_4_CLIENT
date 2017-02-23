@@ -2,7 +2,7 @@ angular
 .module('financeApp')
 .service('CurrentUserService', CurrentUserService);
 
-CurrentUserService.$inject = ['TokenService', 'User', "$rootScope"];
+CurrentUserService.$inject = ['TokenService', 'User', '$rootScope'];
 
 function CurrentUserService(TokenService, User, $rootScope) {
 
@@ -20,8 +20,8 @@ function CurrentUserService(TokenService, User, $rootScope) {
     }
   };
   self.clearUser = () => {
-    console.log("clearUser in curent User service is logging out")
-    currentUser = null;
+    console.log('clearUser in curent User service is logging out');
+    self.currentUser = null;
     TokenService.clearToken();
     $rootScope.$broadcast('loggedOut');
   };
