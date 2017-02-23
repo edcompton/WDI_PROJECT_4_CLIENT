@@ -2,10 +2,11 @@ angular
 .module('financeApp')
 .controller('CompanyDataCtrl', CompanyDataCtrl);
 
-CompanyDataCtrl.$inject = ['$http','API'];
-function CompanyDataCtrl($http, API){
+CompanyDataCtrl.$inject = ['$http','API', '$stateParams'];
+function CompanyDataCtrl($http, API, $stateParams){
   const vm = this;
-  const ticker = 'AAPL';
+  vm.tickerParam = $stateParams.ticker.toString();
+  const ticker = vm.tickerParam;
 
   if (!vm.fs) getCompanyData();
 
@@ -15,10 +16,10 @@ function CompanyDataCtrl($http, API){
     $http({
       method: 'POST',
       url: `${API}/historicalprices`,
-      data: ['AAPL']
+      data: [ticker]
     }).then(function successCallback(response) {
       vm.priceHistory = response.data.priceHistory;
-      console.log(vm.priceHistory);
+      console.log(response);
     }, function errorCallback(error) {
       console.log(error);
     });
@@ -31,7 +32,7 @@ function CompanyDataCtrl($http, API){
       url: `${API}/companies/epsestimates/${ticker}`
     }).then(function successCallback(response) {
       vm.est = response.data;
-      console.log(vm.est);
+      // console.log(vm.est);
     }, function errorCallback(error) {
       console.log(error);
     });
@@ -59,7 +60,7 @@ function CompanyDataCtrl($http, API){
       vm.fs.cf2 = response.data.cf_yearly_results[2];
       vm.fs.cf = [vm.fs.cf2, vm.fs.cf1, vm.fs.cf0];
 
-      console.log(vm.fs);
+      // console.log(vm.fs);
     }, function errorCallback(error) {
       console.log(error);
     });

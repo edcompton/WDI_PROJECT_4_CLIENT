@@ -42,4 +42,6 @@ function MainCtrl($rootScope, CurrentUserService, $state, $location){
     $location.url(`/company/${ticker.description}/model`);
   };
 
+
+
 }
