@@ -5,15 +5,23 @@ angular
 companyWatchlistCtrl.$inject = ["$http", "API", "CurrentUserService", "$location"];
 function companyWatchlistCtrl($http, API, CurrentUserService, $location) {
 
-  const vm = this;
+const vm = this;
 
+console.log("curreCurrentUserService inside companyWatchlistCtrl:", CurrentUserService);
   var data = CurrentUserService.currentUser;
 
-  console.log(data.user);
-  userId = data.user.id
+  userId = data.user.id;
+  console.log("inside companyWatchlistCtrl", data.user.id);
+  vm.addCompany = function(stockTicker) {
+    console.log(stockTicker);
+    $http
+      post(`${API}`)
+  }
 
   vm.removeCompany = function(companyTicker) {
-     console.log(companyTicker);
+    var index = vm.tickers.indexOf(companyTicker);
+    vm.tickers.splice(index, 1)
+    // vm.tickers.filter(t => t !== companyTicker);
      $http
       .post(`${API}/watchlists/${userId}/delete/${companyTicker}`)
       .then(function(res, err) {

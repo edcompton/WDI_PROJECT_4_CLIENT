@@ -10,7 +10,6 @@ function ChartCtrl($http, API) {
   vm.stockChartTitle = 'S&P 500';
 
   vm.getHistoricalPrices = function(symbol) {
-    console.log(symbol, 'symbol');
     $http({
       method: 'POST',
       url: `${API}/historicalprices`,

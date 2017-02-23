@@ -8,15 +8,16 @@ function MainCtrl($rootScope, CurrentUserService, $state, $location){
   const vm = this;
 
   vm.tickers = [{ticker: 'Apple', description: 'AAPL'}, {ticker: 'Google', description: 'GOOG'}, {ticker: 'Coca Cola', description: 'KO'}, {ticker: 'Procter & Gamble', description: 'PG'}, {ticker: 'Microsoft', description: 'MSFT'}];
-  vm.user = CurrentUserService.getUser();
+  // vm.user = CurrentUserService.getUser();
 
   $rootScope.$on('loggedIn', () => {
-    vm.user = CurrentUserService.getUser();
-    $state.go('home');
+    console.log("Inside logged in inside main control:", CurrentUserService.currentUser);
+    vm.user = CurrentUserService.currentUser;
+    $state.go('home', {id: vm.user._id});
   });
 
   $rootScope.$on('loggedOut', () => {
-    console.log('logged out');
+    console.log('logged out being broadcast in mainCtrl');
     vm.user = null;
     $state.go('login');
   });

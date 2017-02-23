@@ -9,20 +9,21 @@ function CurrentUserService(TokenService, User, $rootScope) {
   const self = this;
 
   self.getUser = () => {
-    console.log('run');
     const decoded = TokenService.decodeToken();
-    if (!decoded) return;
-    return User.get({ id: decoded.id })
-    .$promise
-    .then((data) => {
-      self.currentUser = data;
-      // $rootScope.$broadcast('loggedIn');
-    });
+    if (decoded) {
+      User.get({ id: decoded.id })
+      .$promise
+      .then((data) => {
+        self.currentUser = data;
+        $rootScope.$broadcast('loggedIn');
+      });
+    }
   };
-
   self.clearUser = () => {
+    console.log("clearUser in curent User service is logging out")
     currentUser = null;
     TokenService.clearToken();
     $rootScope.$broadcast('loggedOut');
   };
+  self.getUser();
 }

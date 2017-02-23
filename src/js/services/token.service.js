@@ -20,7 +20,7 @@ function TokenService($window, jwtHelper) {
   };
 
   self.clearToken = clearToken;
-  function clearToken(){
+  function clearToken() {
     $window.localStorage.removeItem('auth-token');
   };
 }
