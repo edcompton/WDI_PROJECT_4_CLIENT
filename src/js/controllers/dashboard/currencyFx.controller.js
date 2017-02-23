@@ -17,7 +17,6 @@ function currencyFxCtrl ($http, API) {
         data.LastTradePriceOnly = parseFloat(data.LastTradePriceOnly);
         data.ChangePips = (parseFloat(data.Change) * 10000).toFixed(0);
         data.ChangePips = data.ChangePips > 0? `+${data.ChangePips}` : data.ChangePips;
-        console.log('this one', data);
         vm.currencyData.push(data);
         if (vm.currencyData.length === vm.currencies.length) vm.fxFinished = true;
       })

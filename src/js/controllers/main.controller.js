@@ -17,7 +17,7 @@ function MainCtrl($rootScope, CurrentUserService, $state, $location){
   });
 
   $rootScope.$on('loggedOut', () => {
-    console.log('logged out');
+    console.log('logged out being broadcast in mainCtrl');
     vm.user = null;
     $state.go('login');
   });
