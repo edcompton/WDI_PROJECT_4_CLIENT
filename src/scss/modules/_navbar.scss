@@ -26,6 +26,7 @@
         float: right;
         margin: 0;
         padding: 0;
+        width: 264px;
       }
     }
 
@@ -52,4 +53,9 @@
     //   width: 200px;
     //   margin-right: 10px;
     // }
+
+    .angucomplete-dropdown {
+  top: 45px;
+  right: 0%; /* compute the left side of the angucomplete-alt element here, for me it was 25% */
+}
 }
