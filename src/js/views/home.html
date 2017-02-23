@@ -1,4 +1,4 @@
-<div class="dashboard container">
+<div ng-controller="ChartCtrl as ChartCtrl" class="dashboard container">
     <div class="row">
 
       <div class="six columns">
@@ -14,6 +14,7 @@
                   <th>Ticker</th>
                   <th>Name</th>
                   <th>Price</th>
+                  <th>Price Data</th>
                   <th>% Move</th>
                   <th>Remove</th>
                   <!-- <th class="table-title">WATCHLIST</th> -->
@@ -24,8 +25,9 @@
                   <td ng-click="watchlist.goToState(stock.Symbol)"><a>{{ stock.Symbol }}</a></td>
                   <td>{{ stock.Name }}</td>
                   <td>{{ stock.LastTradePriceOnly }}</td>
+                  <td><a ng-click="ChartCtrl.getHistoricalPrices(stock.Symbol)">Chart</a></td>
                   <td>{{ stock.ChangeinPercent }}</td>
-                  <td>-</td>
+                  <td ng-click="watchlist.removeCompany(stock.Symbol)">-</td>
                 </tr>
               </tbody>
             </table>
@@ -36,7 +38,7 @@
           <div class="dashboard title">
             <h6>Stock Price</h6>
           </div>
-          <div ng-controller="ChartCtrl as ChartCtrl" class="canvas-container chart">
+          <div class="canvas-container chart">
             <canvas id="line" class="chart chart-line" chart-data="ChartCtrl.data"
             chart-series="ChartCtrl.series" chart-options="ChartCtrl.options"
             chart-labels="ChartCtrl.labels"

@@ -8,11 +8,12 @@ function ChartCtrl($http, API) {
 
   const vm = this;
 
-  function getHistoricalPrices() {
+  vm.getHistoricalPrices = function(symbol) {
+    console.log(symbol, 'symbol');
     $http({
       method: 'POST',
       url: `${API}/historicalprices`,
-      data: ['GOOG']
+      data: [symbol]
     }).then(function successCallback(response) {
       vm.priceHistory = response.data.priceHistory;
       // console.log(vm.priceHistory);
@@ -20,9 +21,9 @@ function ChartCtrl($http, API) {
     }, function errorCallback(error) {
       console.log(error);
     });
-  }
+  };
 
-  getHistoricalPrices();
+  vm.getHistoricalPrices();
 
   function createChart(priceHistory) {
     var date = priceHistory[0][0].Date.split('-').join(' ');
