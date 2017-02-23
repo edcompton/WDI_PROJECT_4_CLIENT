@@ -15,7 +15,6 @@ function ChartCtrl($http, API) {
       data: ['GOOG']
     }).then(function successCallback(response) {
       vm.priceHistory = response.data.priceHistory;
-      // console.log(vm.priceHistory);
       createChart(vm.priceHistory);
     }, function errorCallback(error) {
       console.log(error);
@@ -41,7 +40,7 @@ function ChartCtrl($http, API) {
       dateData
     ];
     vm.onClick = function (points, evt) {
-      console.log(points, evt);
+      // console.log(points, evt);
     };
     vm.datasetOverride = [{ yAxisID: 'y-axis-1' }, { yAxisID: 'y-axis-2' }];
     vm.options = {

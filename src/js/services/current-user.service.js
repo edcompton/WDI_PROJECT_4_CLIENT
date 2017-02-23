@@ -10,7 +10,11 @@ function CurrentUserService(TokenService, User, $rootScope) {
   self.getUser = () => {
     const decoded = TokenService.decodeToken();
     if (!decoded) return;
-    return User.get({ id: decoded.id }).$promise; // $promise has to be joined onto the get
+
+    return User.get({ id: decoded.id }).$promise.then((data) => {
+      self.currentUser = data;
+      $rootScope.$broadcast('loggedIn');
+    });
   };
 
   self.clearUser = () => {
