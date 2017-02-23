@@ -12,7 +12,7 @@ function MainCtrl($rootScope, CurrentUserService, $state, $location){
   vm.user = CurrentUserService.getUser();
 
   $rootScope.$on('loggedIn', () => {
-    console.log("Inside logged in inside main control:", CurrentUserService.currentUser);
+    console.log('Inside logged in inside main control:', CurrentUserService.currentUser);
     vm.user = CurrentUserService.currentUser;
     $state.go('home', {id: vm.user._id});
   });
