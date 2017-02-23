@@ -1,9 +1,34 @@
 .modelNavButtons {
   width: 100%;
   text-align: center;
-  margin: 0 0 10px 0;
+  margin: 10px 0 10px 0;
+  border-radius: 0px;
+  color: white;
 }
 
-.header {
-  // border-right: 1px solid black;
+.statement-tab {
+  height: calc(100vh - 60px);
+
+  .statement-tab-nav {
+    height: 60px;
+    border-bottom: 1px solid $line-grey
+  }
+  .sheet {
+    height: calc(100vh - 120px);
+    overflow-y: auto;
+
+    tbody {
+      overflow-y: auto;
+      height: 100%;
+    }
+
+    th {
+      // border: none;
+    }
+
+    td {
+      height: 20px;
+      padding: 0;
+    }
+  }
 }
