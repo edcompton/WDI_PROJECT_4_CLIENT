@@ -1,16 +1,16 @@
 <div class="row">
-<div class="three columns">
-<button type="button" name="button" ui-sref='companySummaryShow' class="modelNavButtons">Summary</button>
-</div>
-<div class="three columns">
-<button type="button" name="button" ui-sref="incomeStatement" class="modelNavButtons">Income Statement</button>
-</div>
-<div class="three columns">
-<button type="button" name="button" ui-sref="balanceSheet" class="modelNavButtons">Balance Sheet</button>
-</div>
-<div class="three columns">
-<button type="button" name="button" ui-sref="cashFlow" class="modelNavButtons">Cash Flow</button>
-</div>
+  <div class="three columns">
+<button type="button" name="button" ui-sref='companySummaryShow({ticker: data.tickerParam})' class="modelNavButtons">Summary</button>
+  </div>
+  <div class="three columns">
+<button type="button" name="button" ui-sref="incomeStatement({ticker: data.tickerParam})" class="modelNavButtons">Income Statement</button>
+  </div>
+  <div class="three columns">
+<button type="button" name="button" ui-sref="balanceSheet({ticker: data.tickerParam})" class="modelNavButtons">Balance Sheet</button>
+  </div>
+  <div class="three columns">
+<button type="button" name="button" ui-sref="cashFlow({ticker: data.tickerParam})" class="modelNavButtons">Cash Flow</button>
+  </div>
 </div>
 
 <section class="companyShowPage">

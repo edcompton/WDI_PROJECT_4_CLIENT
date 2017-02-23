@@ -2,15 +2,17 @@ angular
 .module('financeApp')
 .controller('CompanyChartCtrl', CompanyChartCtrl);
 
-CompanyChartCtrl.$inject = ['$http','API'];
-function CompanyChartCtrl($http, API){
+CompanyChartCtrl.$inject = ['$http','API', '$stateParams'];
+function CompanyChartCtrl($http, API, $stateParams){
   const vm = this;
+  vm.tickerParam = $stateParams.ticker.toString();
+  const ticker = vm.tickerParam;
 
   function getHistoricalPrices() {
     $http({
       method: 'POST',
       url: `${API}/historicalprices`,
-      data: ['AAPL']
+      data: [ticker]
     }).then(function successCallback(response) {
       vm.priceHistory = response.data.priceHistory;
       // console.log(vm.priceHistory);
