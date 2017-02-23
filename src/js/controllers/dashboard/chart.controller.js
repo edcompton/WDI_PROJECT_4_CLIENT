@@ -8,21 +8,21 @@ function ChartCtrl($http, API) {
 
   const vm = this;
 
-  function getHistoricalPrices() {
+  vm.getHistoricalPrices = function(symbol) {
+    console.log(symbol, 'symbol');
     $http({
       method: 'POST',
       url: `${API}/historicalprices`,
-      data: ['GOOG']
+      data: [symbol]
     }).then(function successCallback(response) {
       vm.priceHistory = response.data.priceHistory;
-      // console.log(vm.priceHistory);
       createChart(vm.priceHistory);
     }, function errorCallback(error) {
       console.log(error);
     });
-  }
+  };
 
-  getHistoricalPrices();
+  vm.getHistoricalPrices();
 
   function createChart(priceHistory) {
     var date = priceHistory[0][0].Date.split('-').join(' ');
@@ -41,7 +41,7 @@ function ChartCtrl($http, API) {
       dateData
     ];
     vm.onClick = function (points, evt) {
-      console.log(points, evt);
+      // console.log(points, evt);
     };
     vm.datasetOverride = [{ yAxisID: 'y-axis-1' }, { yAxisID: 'y-axis-2' }];
     vm.options = {

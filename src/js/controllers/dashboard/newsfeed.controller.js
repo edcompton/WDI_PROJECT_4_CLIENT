@@ -27,9 +27,7 @@ function newsfeedCtrl($http, API) {
       url: `${API}/filingfeed`,
       data: vm.tickers
     }).then(function successCallback(response) {
-      console.log(response);
       vm.filingItems = response.data.filingItems;
-      console.log(vm.filingItems);
     }, function errorCallback(error) {
       console.log(error);
     });
@@ -52,7 +50,6 @@ function newsfeedCtrl($http, API) {
       angular.element(this).scrollTop($(this).scrollTop() - e.originalEvent.wheelDeltaY);
       //prevent page fom scrolling
       return false;
-
     });
   }
   // preventOverscroll()

@@ -3,14 +3,21 @@ angular
 .service('CurrentUserService', CurrentUserService);
 
 CurrentUserService.$inject = ['TokenService', 'User', "$rootScope"];
+
 function CurrentUserService(TokenService, User, $rootScope) {
 
   const self = this;
 
   self.getUser = () => {
+    console.log('run');
     const decoded = TokenService.decodeToken();
     if (!decoded) return;
-    return User.get({ id: decoded.id }).$promise; // $promise has to be joined onto the get
+    return User.get({ id: decoded.id })
+    .$promise
+    .then((data) => {
+      self.currentUser = data;
+      // $rootScope.$broadcast('loggedIn');
+    });
   };
 
   self.clearUser = () => {
