@@ -10,7 +10,7 @@ function CompanyDataCtrl($http, API, $stateParams){
 
   getCompanyData();
   getSectorDescription();
-  getEpsEstimates();
+  getMarketCap();
   getHistoricalPrices();
 
   function getHistoricalPrices() {
@@ -26,18 +26,16 @@ function CompanyDataCtrl($http, API, $stateParams){
     });
   }
 
-
-  function getEpsEstimates() {
-    $http({
-      method: 'GET',
-      url: `${API}/companies/epsestimates/${ticker}`
-    }).then(function successCallback(response) {
-      vm.est = response.data;
-      vm.marketCap = response.data.market_cap;
-    }, function errorCallback(error) {
-      console.log(error);
-    });
+  function getMarketCap() {
+    $http
+      .get(`https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%20in%20(%22${ticker}%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=`)
+      .then(function(response) {
+        const data = response.data.query.results.quote;
+        vm.marketCap = data.MarketCapitalization;
+        console.log(vm.marketCap);
+      });
   }
+
 
   function getCompanyData() {
     $http({

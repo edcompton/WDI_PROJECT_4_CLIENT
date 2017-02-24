@@ -19,8 +19,8 @@
     <table class="u-full-width">
       <thead>
         <tr>
-          <th>Balance Sheet</th>
-          <th ng-repeat="BS in model.bs">{{ BS.year }}</th>
+          <th class="no_border">Balance Sheet</th>
+          <th ng-repeat="BS in model.bs" class="no_border">{{ BS.year }}</th>
         </tr>
       </thead>
         <tbody>
@@ -82,7 +82,7 @@
             <td ng-repeat="BS in model.bs"><strong>{{ BS.total_assets.toLocaleString() }}</strong></td>
           </tr>
 
-          <tr><td></td></tr>
+          <tr><td class="no_border"></td></tr>
 
           <tr>
             <td>Accounts payable and accrued expenses</td>
@@ -138,7 +138,7 @@
             <td ng-repeat="BS in model.bs"><strong>{{ (BS.total_liabilities_and_equity - BS.total_equity).toLocaleString() }}</strong></td>
           </tr>
 
-          <tr><td></td></tr>
+          <tr><td class="no_border"></td></tr>
 
           <tr>
             <td>Stock value and paid-in capital</td>
