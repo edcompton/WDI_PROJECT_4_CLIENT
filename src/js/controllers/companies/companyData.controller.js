@@ -32,7 +32,6 @@ function CompanyDataCtrl($http, API, $stateParams){
       .then(function(response) {
         const data = response.data.query.results.quote;
         vm.marketCap = data.MarketCapitalization;
-        console.log(vm.marketCap);
       });
   }
 

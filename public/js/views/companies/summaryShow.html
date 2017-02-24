@@ -1,0 +1,128 @@
+<div class="statement-tab container">
+  <div class="row statement-tab-nav">
+
+    <div class="three columns">
+      <button type="button" name="button" ui-sref='companySummaryShow({ticker: data.tickerParam})' class="modelNavButtons">Summary</button>
+    </div>
+
+    <div class="three columns">
+      <button type="button" name="button" ui-sref="incomeStatement({ticker: data.tickerParam})" class="modelNavButtons">Income Statement</button>
+    </div>
+
+    <div class="three columns">
+      <button type="button" name="button" ui-sref="balanceSheet({ticker: data.tickerParam})" class="modelNavButtons">Balance Sheet</button>
+    </div>
+
+    <div class="three columns">
+      <button type="button" name="button" ui-sref="cashFlow({ticker: data.tickerParam})" class="modelNavButtons">Cash Flow</button>
+    </div>
+
+  </div>
+
+  <section class="companyShowPage" ng-controller="CompanyDataCtrl as co">
+
+    <div class="row">
+      <div class="six columns">
+        <section class="companySummaryPage" ng-controller="companyWatchlistCtrl as watchlist">
+          <div class="title">
+            <h6>Description</h6>
+          </div>
+          <div class="description">
+            <div class="row">
+              <div class="eight columns">
+                <h5>{{ co.companyName }}</h5>
+              </div>
+              <div class="four columns">
+                <button type="button" ng-click="watchlist.addCompany(co.tickerParam)">Add To Watchlist</button>
+              </div>
+            </div>
+            <h6>Sector: {{ co.companySector }}</h6>
+            <h6>Market cap: {{ co.marketCap }}</h6>
+            <h6>Description</h6>
+            <p class="description">
+              {{ co.companyDescription }}
+            </p>
+          </div>
+        </section>
+
+        <section class="newsfeed">
+          <div class="title">
+            <h6>News Feed</h6>
+          </div>
+          <div class="newsfeed" ng-controller="GetFeedsCtrl as feeds">
+            <table class="u-full-width scrollable">
+              <thead>
+                <tr>
+                  <th>Time</th>
+                  <th>Headline</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="article in feeds.newsItems">
+                  <td>{{ article.pubDate }}</td>
+                  <td><a href="{{ article.link }}">{{ article.title }}</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+
+      <div class="six columns">
+        <section class="comparables">
+          <div class="title">
+            <h6>Valuation Mulitples</h6>
+          </div>
+          <div class="valuation" ng-controller="PeerDataCtrl as data">
+              <table class="u-full-width">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Stock price</th>
+                    <!-- <th>Market cap</th> -->
+                    <th>Year end</th>
+                    <!-- <th>EPS<br>FY15</th> -->
+                    <th>EPS<br>FY16</th>
+                    <th>EPS<br>FY17E</th>
+                    <th>EPS<br>FY18E</th>
+                    <!-- <th>PE<br>FY15</th> -->
+                    <th>PE<br>FY16</th>
+                    <th>PE<br>FY17E</th>
+                    <th>PE<br>FY18E</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="peer in data.peerData">
+                    <td><strong>{{ peer.name.toUpperCase() }}</strong></td>
+                    <td>${{ data.peerStockPrices[data.peerData.indexOf(peer)] }}</td>
+                    <!-- <td>${{ data.peerMarketCaps[data.peerData.indexOf(peer)] }}</td> -->
+                    <td>{{ data.yearEnds[data.peerData.indexOf(peer)] }}</td>
+                    <!-- <td>{{ data.eps2015[data.peerData.indexOf(peer)] }}</td> -->
+                    <td>{{ data.eps2016[data.peerData.indexOf(peer)] || "" }}</td>
+                    <td>{{ data.peerEpsEst[data.peerData.indexOf(peer)].eps_estimate_0 }}</td>
+                    <td>{{ data.peerEpsEst[data.peerData.indexOf(peer)].eps_estimate_1 }}</td>
+
+                    <!-- <td>{{ (data.peerStockPrices[data.peerData.indexOf(peer)] / data.eps2015[data.peerData.indexOf(peer)]).toFixed(1) + "x" }}</td> -->
+                    <td>{{ (data.peerStockPrices[data.peerData.indexOf(peer)] / data.eps2016[data.peerData.indexOf(peer)]).toFixed(1) + "x" }}</td>
+                    <td>{{ (data.peerStockPrices[data.peerData.indexOf(peer)] / data.peerEpsEst[data.peerData.indexOf(peer)].eps_estimate_0).toFixed(1) + "x" }}</td>
+                    <td>{{ (data.peerStockPrices[data.peerData.indexOf(peer)] / data.peerEpsEst[data.peerData.indexOf(peer)].eps_estimate_1).toFixed(1) + "x" }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+          <section class="dashboardChart">
+            <div class="title">
+              <h6>Price Chart (from Jan'16)</h6>
+            </div>
+            <div class="price-chart" ng-controller="CompanyChartCtrl as CompanyChartCtrl">
+              <canvas id="line" class="chart chart-line" chart-data="CompanyChartCtrl.data"
+              chart-labels="CompanyChartCtrl.labels" chart-series="CompanyChartCtrl.series" chart-options="CompanyChartCtrl.options"
+              chart-dataset-override="CompanyChartCtrl.datasetOverride" chart-click="ChartCtrl.onClick">
+            </canvas>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+</div>

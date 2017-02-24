@@ -79,13 +79,13 @@
                   <tr>
                     <th></th>
                     <th>Stock price</th>
-                    <th>Market cap</th>
+                    <!-- <th>Market cap</th> -->
                     <th>Year end</th>
-                    <th>EPS<br>FY15</th>
+                    <!-- <th>EPS<br>FY15</th> -->
                     <th>EPS<br>FY16</th>
                     <th>EPS<br>FY17E</th>
                     <th>EPS<br>FY18E</th>
-                    <th>PE<br>FY15</th>
+                    <!-- <th>PE<br>FY15</th> -->
                     <th>PE<br>FY16</th>
                     <th>PE<br>FY17E</th>
                     <th>PE<br>FY18E</th>
@@ -95,14 +95,14 @@
                   <tr ng-repeat="peer in data.peerData">
                     <td><strong>{{ peer.name.toUpperCase() }}</strong></td>
                     <td>${{ data.peerStockPrices[data.peerData.indexOf(peer)] }}</td>
-                    <td>${{ data.peerMarketCaps[data.peerData.indexOf(peer)] }}</td>
+                    <!-- <td>${{ data.peerMarketCaps[data.peerData.indexOf(peer)] }}</td> -->
                     <td>{{ data.yearEnds[data.peerData.indexOf(peer)] }}</td>
-                    <td>{{ data.eps2015[data.peerData.indexOf(peer)] }}</td>
+                    <!-- <td>{{ data.eps2015[data.peerData.indexOf(peer)] }}</td> -->
                     <td>{{ data.eps2016[data.peerData.indexOf(peer)] || "" }}</td>
                     <td>{{ data.peerEpsEst[data.peerData.indexOf(peer)].eps_estimate_0 }}</td>
                     <td>{{ data.peerEpsEst[data.peerData.indexOf(peer)].eps_estimate_1 }}</td>
 
-                    <td>{{ (data.peerStockPrices[data.peerData.indexOf(peer)] / data.eps2015[data.peerData.indexOf(peer)]).toFixed(1) + "x" }}</td>
+                    <!-- <td>{{ (data.peerStockPrices[data.peerData.indexOf(peer)] / data.eps2015[data.peerData.indexOf(peer)]).toFixed(1) + "x" }}</td> -->
                     <td>{{ (data.peerStockPrices[data.peerData.indexOf(peer)] / data.eps2016[data.peerData.indexOf(peer)]).toFixed(1) + "x" }}</td>
                     <td>{{ (data.peerStockPrices[data.peerData.indexOf(peer)] / data.peerEpsEst[data.peerData.indexOf(peer)].eps_estimate_0).toFixed(1) + "x" }}</td>
                     <td>{{ (data.peerStockPrices[data.peerData.indexOf(peer)] / data.peerEpsEst[data.peerData.indexOf(peer)].eps_estimate_1).toFixed(1) + "x" }}</td>
@@ -113,7 +113,7 @@
           </section>
           <section class="dashboardChart">
             <div class="title">
-              <h6>Price Chart</h6>
+              <h6>Price Chart (from Jan'16)</h6>
             </div>
             <div class="price-chart" ng-controller="CompanyChartCtrl as CompanyChartCtrl">
               <canvas id="line" class="chart chart-line" chart-data="CompanyChartCtrl.data"

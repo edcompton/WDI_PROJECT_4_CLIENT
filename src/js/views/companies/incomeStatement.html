@@ -28,6 +28,10 @@
           <td ng-repeat="IS in model.is">{{ IS.sales.toLocaleString() }}</td>
         </tr>
         <tr>
+          <td>- sales growth</td>
+          <td ng-repeat="IS in model.is">{{ ((IS.sales / model.is[model.is.indexOf(IS)-1].sales -1)*100).toFixed(1) + '%' }}</td>
+        </tr>
+        <tr>
           <td>COGS</td>
           <td ng-repeat="IS in model.is">{{ IS.cogs.toLocaleString() }}</td>
         </tr>

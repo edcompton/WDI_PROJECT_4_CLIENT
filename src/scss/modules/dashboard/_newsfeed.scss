@@ -29,7 +29,7 @@
     td:nth-child(3), th:nth-child(3) { width: $column_three_width; }
 
     thead {
-      border-bottom: 1px solid #E1E1E1; 
+      border-bottom: 1px solid #E1E1E1;
       tr {
         display: block;
         position: relative;
@@ -43,6 +43,7 @@
       height: 100%;
       tr:nth-child(even) {
         background-color: $alternate_row_background_color;
+        display: block;
       }
     }
   }

@@ -28,10 +28,10 @@ function MainCtrl($rootScope, CurrentUserService, $state, $location){
   };
 
   vm.localSearch = function(str) {
-    console.log(str);
+    // console.log(str);
     var matches = [];
     vm.tickers.forEach(function(ticker) {
-      console.log(ticker.ticker);
+      // console.log(ticker.ticker);
       if ((ticker.ticker.toLowerCase().indexOf(str.toString().toLowerCase()) >= 0)) {
         matches.push(ticker);
       }
@@ -40,7 +40,7 @@ function MainCtrl($rootScope, CurrentUserService, $state, $location){
   };
 
   vm.searchTicker = function(ticker) {
-    console.log(ticker.description);
+    // console.log(ticker.description);
     $location.url(`/company/${ticker.description}/summary`);
   };
 

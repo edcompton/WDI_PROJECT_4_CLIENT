@@ -34,7 +34,7 @@
         </section>
         <section class="tile dashboard chart">
           <div class="dashboard title">
-            <h6>Stock Price - {{ChartCtrl.stockChartTitle}}</h6>
+            <h6>Stock Price - {{ChartCtrl.stockChartTitle}} (from Jan'16)</h6>
           </div>
           <div class="canvas-container chart">
             <canvas id="line" class="chart chart-line" chart-data="ChartCtrl.data"
@@ -68,7 +68,7 @@
               </table>
             </div>
           </section>
-          <section class= " tile fx-matrix">
+          <section class= "tile fx-matrix">
             <div class="dashboard title">
               <h6>Fx Matrix</h6>
             </div>
@@ -85,18 +85,18 @@
                   <tr>
                     <td><strong>USD</strong></td>
                     <td></td>
-                    <td>{{ (1 / fxCtrl.currencyData[0].LastTradePriceOnly).toPrecision(4) }}<br> {{ ((1 / (fxCtrl.currencyData[0].LastTradePriceOnly) - (1 / (fxCtrl.currencyData[0].LastTradePriceOnly - fxCtrl.currencyData[0].Change ))) * 10000).toFixed(0)  }}</td>
-                    <td>{{ (1 / fxCtrl.currencyData[1].LastTradePriceOnly).toPrecision(4) }}<br> {{ ((1 / (fxCtrl.currencyData[1].LastTradePriceOnly) - (1 / (fxCtrl.currencyData[1].LastTradePriceOnly - fxCtrl.currencyData[1].Change ))) * 10000).toFixed(0)  }}</td>
-                    <td>{{ (1 / fxCtrl.currencyData[2].LastTradePriceOnly).toPrecision(4) }}<br> {{ ((1 / (fxCtrl.currencyData[2].LastTradePriceOnly) - (1 / (fxCtrl.currencyData[2].LastTradePriceOnly - fxCtrl.currencyData[2].Change ))) * 10000).toFixed(0)  }}</td>
-                    <td>{{ (1 / fxCtrl.currencyData[3].LastTradePriceOnly).toPrecision(4) }}<br> {{ ((1 / (fxCtrl.currencyData[3].LastTradePriceOnly) - (1 / (fxCtrl.currencyData[3].LastTradePriceOnly - fxCtrl.currencyData[3].Change ))) * 10000).toFixed(0)  }}</td>
+                    <td ng-style="fxCtrl.checkFX(fxCtrl.usCurrencyChanges[0])">{{ fxCtrl.usCrossCurrencies[0] }} <br>{{ fxCtrl.usCurrencyChanges[0] }}</td>
+                    <td ng-style="fxCtrl.checkFX(fxCtrl.usCurrencyChanges[1])">{{ fxCtrl.usCrossCurrencies[1] }} <br>{{ fxCtrl.usCurrencyChanges[1] }}</td>
+                    <td ng-style="fxCtrl.checkFX(fxCtrl.usCurrencyChanges[2])">{{ fxCtrl.usCrossCurrencies[2] }} <br>{{ fxCtrl.usCurrencyChanges[2] }}</td>
+                    <td ng-style="fxCtrl.checkFX(fxCtrl.usCurrencyChanges[3])">{{ fxCtrl.usCrossCurrencies[3] }} <br>{{ fxCtrl.usCurrencyChanges[3] }}</td>
                   </tr>
                   <tr ng-repeat="fx in fxCtrl.currencyData">
                     <td><strong>{{ fx.Symbol.substr(0,3) }}</strong></td>
-                    <td>{{ (fx.LastTradePriceOnly).toPrecision(4) }}{{ fx.ChangePips }}</td>
-                    <td>{{ fx.crossCurrencies[0] }} {{ fx.crossCurrencyChanges[0] }}</td>
-                    <td>{{ fx.crossCurrencies[1] }} {{ fx.crossCurrencyChanges[1] }}</td>
-                    <td>{{ fx.crossCurrencies[2] }} {{ fx.crossCurrencyChanges[2] }}</td>
-                    <td>{{ fx.crossCurrencies[3] }} {{ fx.crossCurrencyChanges[3] }}</td>
+                    <td ng-style="fxCtrl.checkFX(fx.ChangePips)">{{ (fx.LastTradePriceOnly).toPrecision(4) }}<br>{{ fx.ChangePips }}</td>
+                    <td ng-style="fxCtrl.checkFX(fx.crossCurrencyChanges[0])">{{ fx.crossCurrencies[0] }} <br>{{ fx.crossCurrencyChanges[0] }}</td>
+                    <td ng-style="fxCtrl.checkFX(fx.crossCurrencyChanges[1])">{{ fx.crossCurrencies[1] }} <br>{{ fx.crossCurrencyChanges[1] }}</td>
+                    <td ng-style="fxCtrl.checkFX(fx.crossCurrencyChanges[2])">{{ fx.crossCurrencies[2] }} <br>{{ fx.crossCurrencyChanges[2] }}</td>
+                    <td ng-style="fxCtrl.checkFX(fx.crossCurrencyChanges[3])">{{ fx.crossCurrencies[3] }} <br>{{ fx.crossCurrencyChanges[3] }}</td>
                   </tr>
                 </tbody>
               </table>

@@ -28,11 +28,17 @@
 
     th {
       // border: none;
+      text-align: center;
     }
 
     td {
       height: 20px;
       padding: 0;
+      text-align: center;
+    }
+
+    td:first-child, th:first-child {
+      text-align: left;
     }
   }
 }

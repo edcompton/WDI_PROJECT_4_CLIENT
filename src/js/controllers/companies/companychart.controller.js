@@ -32,9 +32,9 @@ function CompanyChartCtrl($http, API, $stateParams){
       closeData.push(priceHistory[0][i].Adj_Close);
       dateData.push(priceHistory[0][i].Date);
     }
-    console.log(date);
-    console.log(closeData);
-    console.log(dateData);
+    // console.log(date);
+    // console.log(closeData);
+    // console.log(dateData);
     vm.labels = dateData;
     vm.series = ['Adjusted Close', 'Date'];
     vm.data = [

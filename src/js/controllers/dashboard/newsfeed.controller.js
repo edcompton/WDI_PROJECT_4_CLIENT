@@ -34,11 +34,11 @@ function newsfeedCtrl($http, API) {
   }
 
   function parseNewsItemPubDates(array) {
-    for(var i = 0; i < vm.newsItems.length; i++) {
-      temp = vm.newsItems[i].pubDate.split(',')[1];
+    for(var i = 0; i < array.length; i++) {
+      let temp = array[i].pubDate.split(',')[1];
       temp = temp.split(' ');
       temp = `${temp[1]} ${temp[2]} ${temp[4]}`;
-      vm.newsItems[i].pubDate = temp;
+      array[i].pubDate = temp;
     }
   }
 

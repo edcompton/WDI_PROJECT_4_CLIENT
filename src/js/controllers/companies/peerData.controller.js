@@ -15,7 +15,7 @@ function PeerDataCtrl($http, API, $stateParams){
       method: 'GET',
       url: `${API}/companies/peerdata/${ticker}`
     }).then(function successCallback(response) {
-      console.log('PEER DATA', response);
+      // console.log('PEER DATA', response);
       vm.peerData = response.data.data;
       vm.peerTickers = [];
       vm.eps2016 = [];
