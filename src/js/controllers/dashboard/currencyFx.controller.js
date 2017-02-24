@@ -49,7 +49,6 @@ function currencyFxCtrl ($http, API) {
   vm.populateCurrencies(addCrossCurrencies);
 
   vm.checkFX = function(fx) {
-    console.log(typeof fx);
     if (fx.indexOf('-') >= 0) {
       return {color: 'red'};
     }else {
