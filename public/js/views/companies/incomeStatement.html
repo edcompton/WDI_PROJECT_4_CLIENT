@@ -1,1 +1,97 @@
-<div class="statement-tab container"><div class="row statement-tab-nav"><div class="three columns"><button type="button" name="button" ui-sref="companySummaryShow({ticker: model.tickerParam})" class="modelNavButtons">Summary</button></div><div class="three columns"><button type="button" name="button" ui-sref="incomeStatement({ticker: model.tickerParam})" class="modelNavButtons">Income Statement</button></div><div class="three columns"><button type="button" name="button" ui-sref="balanceSheet({ticker: model.tickerParam})" class="modelNavButtons">Balance Sheet</button></div><div class="three columns"><button type="button" name="button" ui-sref="cashFlow({ticker: model.tickerParam})" class="modelNavButtons">Cash Flow</button></div></div><div class="income_statement sheet"><table class="u-full-width"><thead><tr><th class="no_border">Income Statement</th><th ng-repeat="IS in model.is" class="no_border">{{ IS.year }}</th></tr></thead><tbody><tr><td>Sales</td><td ng-repeat="IS in model.is">{{ IS.sales.toLocaleString() }}</td></tr><tr><td>- sales growth</td><td ng-repeat="IS in model.is">{{ ((IS.sales / model.is[model.is.indexOf(IS)-1].sales -1)*100).toFixed(1) + '%' }}</td></tr><tr><td>COGS</td><td ng-repeat="IS in model.is">{{ IS.cogs.toLocaleString() }}</td></tr><tr><td>Gross profit</td><td ng-repeat="IS in model.is">{{ (IS.sales - IS.cogs).toLocaleString() }}</td></tr><tr><td>- gross margin</td><td ng-repeat="IS in model.is">{{ ((IS.sales - IS.cogs) / IS.sales * 100).toFixed(1) + "%" }}</td></tr><tr><td>Operating expenditures</td><td ng-repeat="IS in model.is">{{ (IS.sales - IS.cogs - IS.ebit).toLocaleString() }}</td></tr><tr><td>- opex % of sales</td><td ng-repeat="IS in model.is">{{ ((IS.sales - IS.cogs - IS.ebit) / IS.sales * 100).toFixed(1) + "%" }}</td></tr><tr><td>EBIT</td><td ng-repeat="IS in model.is">{{ IS.ebit.toLocaleString() }}</td></tr><tr><td>- margin</td><td ng-repeat="IS in model.is">{{ (IS.ebit / IS.sales * 100).toFixed(1) + "%" }}</td></tr><tr><td>Finance and other expense/(income)</td><td ng-repeat="IS in model.is">{{ (IS.ebit - IS.pbt).toLocaleString() }}</td></tr><tr><td>Profit before tax</td><td ng-repeat="IS in model.is">{{ IS.pbt.toLocaleString() }}</td></tr><tr><td>Tax</td><td ng-repeat="IS in model.is">{{ IS.tax.toLocaleString() }}</td></tr><tr><td>- tax rate</td><td ng-repeat="IS in model.is">{{ ((IS.tax) / IS.pbt * 100).toFixed(1) + "%" }}</td></tr><tr><td>Other adjustments</td><td ng-repeat="IS in model.is">{{ (IS.pbt - IS.net_income - IS.tax).toLocaleString() }}</td></tr><tr><td>Net income</td><td ng-repeat="IS in model.is">{{ IS.net_income.toLocaleString() }}</td></tr><tr><td>Basic EPS</td><td ng-repeat="IS in model.is">{{ IS.basic_eps }}</td></tr><tr><td>Diluted EPS</td><td ng-repeat="IS in model.is">{{ IS.diluted_eps }}</td></tr></tbody></table></div></div>
+<div class="statement-tab container">
+  <div class="row statement-tab-nav">
+    <div class="three columns">
+      <button type="button" name="button" ui-sref='companySummaryShow({ticker: model.tickerParam})' class="modelNavButtons">Summary</button>
+    </div>
+    <div class="three columns">
+      <button type="button" name="button" ui-sref="incomeStatement({ticker: model.tickerParam})" class="modelNavButtons">Income Statement</button>
+    </div>
+    <div class="three columns">
+      <button type="button" name="button" ui-sref="balanceSheet({ticker: model.tickerParam})" class="modelNavButtons">Balance Sheet</button>
+    </div>
+    <div class="three columns">
+      <button type="button" name="button" ui-sref="cashFlow({ticker: model.tickerParam})" class="modelNavButtons">Cash Flow</button>
+    </div>
+  </div>
+
+  <div class="income_statement sheet">
+    <table class="u-full-width">
+      <thead>
+        <tr>
+          <th class="no_border">Income Statement</th>
+          <th ng-repeat="IS in model.is" class="no_border">{{ IS.year }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Sales</td>
+          <td ng-repeat="IS in model.is">{{ IS.sales.toLocaleString() }}</td>
+        </tr>
+        <tr>
+          <td>- sales growth</td>
+          <td ng-repeat="IS in model.is">{{ ((IS.sales / model.is[model.is.indexOf(IS)-1].sales -1)*100).toFixed(1) + '%' }}</td>
+        </tr>
+        <tr>
+          <td>COGS</td>
+          <td ng-repeat="IS in model.is">{{ IS.cogs.toLocaleString() }}</td>
+        </tr>
+        <tr>
+          <td>Gross profit</td>
+          <td ng-repeat="IS in model.is">{{ (IS.sales - IS.cogs).toLocaleString() }}</td>
+        </tr>
+        <tr>
+          <td>- gross margin</td>
+          <td ng-repeat="IS in model.is">{{ ((IS.sales - IS.cogs) / IS.sales * 100).toFixed(1) + "%" }}</td>
+        </tr>
+        <tr>
+          <td>Operating expenditures</td>
+          <td ng-repeat="IS in model.is">{{ (IS.sales - IS.cogs - IS.ebit).toLocaleString() }}</td>
+        </tr>
+        <tr>
+          <td>- opex % of sales</td>
+          <td ng-repeat="IS in model.is">{{ ((IS.sales - IS.cogs - IS.ebit) / IS.sales * 100).toFixed(1) + "%" }}</td>
+        </tr>
+        <tr>
+          <td>EBIT</td>
+          <td ng-repeat="IS in model.is">{{ IS.ebit.toLocaleString() }}</td>
+        </tr>
+        <tr>
+          <td>- margin</td>
+          <td ng-repeat="IS in model.is">{{ (IS.ebit / IS.sales * 100).toFixed(1) + "%" }}</td>
+        </tr>
+        <tr>
+          <td>Finance and other expense/(income)</td>
+          <td ng-repeat="IS in model.is">{{ (IS.ebit - IS.pbt).toLocaleString() }}</td>
+        </tr>
+        <tr>
+          <td>Profit before tax</td>
+          <td ng-repeat="IS in model.is">{{ IS.pbt.toLocaleString() }}</td>
+        </tr>
+        <tr>
+          <td>Tax</td>
+          <td ng-repeat="IS in model.is">{{ IS.tax.toLocaleString() }}</td>
+        </tr>
+        <tr>
+          <td>- tax rate</td>
+          <td ng-repeat="IS in model.is">{{ ((IS.tax) / IS.pbt * 100).toFixed(1) + "%" }}</td>
+        </tr>
+        <tr>
+          <td>Other adjustments</td>
+          <td ng-repeat="IS in model.is">{{ (IS.pbt - IS.net_income - IS.tax).toLocaleString() }}</td>
+        </tr>
+        <tr>
+          <td>Net income</td>
+          <td ng-repeat="IS in model.is">{{ IS.net_income.toLocaleString() }}</td>
+        </tr>
+        <tr>
+          <td>Basic EPS</td>
+          <td ng-repeat="IS in model.is">{{ IS.basic_eps }}</td>
+        </tr>
+        <tr>
+          <td>Diluted EPS</td>
+          <td ng-repeat="IS in model.is">{{ IS.diluted_eps }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
