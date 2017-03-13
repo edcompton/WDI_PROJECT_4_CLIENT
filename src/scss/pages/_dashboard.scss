@@ -15,6 +15,10 @@
     height: 100%;
     margin: 0;
     box-sizing: border-box;
+    thead {
+      height: 45px;
+      display: block;
+    }
   }
   .dashboard.title {
     height: 30px;
