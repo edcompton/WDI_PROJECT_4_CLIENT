@@ -1,3 +1,3 @@
 angular
   .module('financeApp')
-  .constant('API', 'http://localhost:3000');
+  .constant('API', 'https://invest-smart-api.herokuapp.com/');

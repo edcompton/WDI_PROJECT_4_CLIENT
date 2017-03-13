@@ -117,7 +117,7 @@
                 </thead>
                 <tbody>
                   <tr ng-repeat="filing in newsfeed.filingItems">
-                    <td>{{ filing.date.to_s }}</td>
+                    <td>{{ filing.date }}</td>
                     <td>{{ filing.ticker }}</td>
                     <td><a href="{{ filing.link }}" target="_blank">{{ filing.title }}</a></td>
                   </tr>
