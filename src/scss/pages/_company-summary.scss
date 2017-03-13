@@ -1,5 +1,9 @@
 .companyShowPage {
 
+  table {
+    border-collapse: collapse;
+  }
+
   h5 {
     margin: 0;
   }
@@ -47,29 +51,81 @@
     .newsfeed {
       height: calc(100% - 30px);
     }
-    tr:nth-child(even) {
-      background-color: $alternate_row_background_color;
+    table {
+      th, td {
+        padding: 5px;
+        text-align: left;
+        border: none;
+      }
+      tr:nth-child(even) {
+        background-color: $alternate_row_background_color;
+      }
+      thead {
+        display: block;
+        height: 25px;
+        border-bottom: 1px solid #E1E1E1;
+        tr {
+          th:nth-child(1) {
+            width: 81px;
+          }
+          th:nth-child(2) {
+            width: 497px;
+          }
+        }
+      }
+      tbody {
+        display: block;
+        height: calc(50vh - 89px);
+        overflow-y: auto;
+        tr {
+          td:nth-child(1) {
+            width: 81px;
+          }
+          td:nth-child(2) {
+            width: 497px;
+          }
+        }
+      }
     }
-    td {
-      border: none;
-      padding: 5px;
-    }
-    tbody {
-      display: block;         
-      height: calc(50vh - 139px);
-      overflow-y: auto;
-      width: 100%;
-    }
+
   }
 
   section.comparables {
     height: calc(50vh - 61px);
-    .valuation {
-      overflow: auto;
+    table {
+      th, td {
+        padding: 5px;
+        text-align: left;
+        border: none;
+      }
+      tr:nth-child(even) {
+        background-color: $alternate_row_background_color;
+      }
+      thead {
+        display: block;
+        height: 45px;
+        border-bottom: 1px solid #E1E1E1;
+        tr {
+          th {
+            width: 62px;
+          }
+          th:nth-child(1) {
+            width: 124px;
+          }
+        }
+      }
       tbody {
         display: block;
-        height: calc(50vh - 155px);
-        overflow: auto;
+        height: calc(50vh - 140px);
+        overflow-y: auto;
+        tr {
+          td {
+            width: 62px;
+          }
+          td:nth-child(1) {
+            width: 100px;
+          }
+        }
       }
     }
   }
