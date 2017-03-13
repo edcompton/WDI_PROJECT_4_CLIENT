@@ -1,3 +1,7 @@
+$column1-width: 257px;
+$column-width: 145px;
+
+
 .modelNavButtons {
   width: 100%;
   text-align: center;
@@ -11,34 +15,47 @@
 
   .statement-tab-nav {
     height: 60px;
-    // border-bottom: 1px solid $line-grey
   }
   .sheet {
-    height: calc(100vh - 120px);
-    overflow-y: auto;
 
-    tbody {
-      overflow-y: auto;
-      height: 100%;
+    table {
+      border-collapse: collapse;
+      border: 1px solid $line-grey;
+      th, td {
+        padding: 5px;
+        text-align: left;
+        border: none;
+      }
+      thead {
+        display: block;
+        height: 25px;
+        border-bottom: 1px solid $line-grey;
+        tr {
+          th {
+            width: $column-width;
+          }
+          th:nth-child(1) {
+            width: $column1-width;
+          }
+        }
+      }
+      tbody {
+        display: block;
+        max-height: calc(100vh - 150px);
+        overflow-y: auto;
+        tr:nth-child(even) {
+          background-color: $alternate_row_background_color;
+        }
+        tr {
+          td {
+            width: $column-width;
+          }
+          td:nth-child(1) {
+            width: $column1-width;
+          }
+        }
+      }
     }
 
-    .no_border {
-      border: none;
-    }
-
-    th {
-      // border: none;
-      text-align: center;
-    }
-
-    td {
-      height: 20px;
-      padding: 0;
-      text-align: center;
-    }
-
-    td:first-child, th:first-child {
-      text-align: left;
-    }
   }
 }
