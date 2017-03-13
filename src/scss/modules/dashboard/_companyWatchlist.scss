@@ -47,6 +47,7 @@ $column6-width: 73px;
         td.remove {
           font-size: 50px;
           line-height: 12px;
+          cursor: pointer;
         }
         td:nth-child(1) {
           width: $column1-width;
