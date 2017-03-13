@@ -1,3 +1,11 @@
+$column1-width: 50px;
+$column2-width: 224px;
+$column3-width: 65px;
+$column4-width: 86px;
+$column5-width: 70px;
+$column6-width: 73px;
+
+
 .dashboard section.watchlist {
   height: 50%;
 
@@ -6,5 +14,60 @@
     height: calc(100% - 30px);
   }
 
+  table {
+    thead {
+      display: block;
+      height: 40px;
+      tr {
+        th:nth-child(1) {
+          width: $column1-width;
+        }
+        th:nth-child(2) {
+          width: $column2-width;
+        }
+        th:nth-child(3) {
+          width: $column3-width;
+        }
+        th:nth-child(4) {
+          width: $column4-width;
+        }
+        th:nth-child(5) {
+          width: $column5-width;
+        }
+        th:nth-child(6) {
+          width: $column6-width;
+        }
+      }
+    }
+    tbody {
+      display: block;
+      height: calc(50vh - 104px);
+      overflow-y: auto;
+      tr {
+        td.remove {
+          font-size: 50px;
+          line-height: 12px;
+        }
+        td:nth-child(1) {
+          width: $column1-width;
+        }
+        td:nth-child(2) {
+          width: $column2-width;
+        }
+        td:nth-child(3) {
+          width: $column3-width;
+        }
+        td:nth-child(4) {
+          width: $column4-width;
+        }
+        td:nth-child(5) {
+          width: $column5-width;
+        }
+        td:nth-child(6) {
+          width: $column6-width;
+        }
+      }
+    }
+  }
 
 }
