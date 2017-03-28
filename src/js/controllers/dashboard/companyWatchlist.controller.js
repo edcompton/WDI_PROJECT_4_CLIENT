@@ -57,14 +57,9 @@ function companyWatchlistCtrl($http, API, CurrentUserService, $location) {
 
 
   setTimeout(function(){
-    console.log('curreCurrentUserService inside companyWatchlistCtrl:', CurrentUserService);
-
     data = CurrentUserService.currentUser;
-
     userId = data.user.id;
-    console.log('inside companyWatchlistCtrl', data.user.id);
   }, 500);
-
   setTimeout(function(){
     fetchWatchlist();
   }, 1500);

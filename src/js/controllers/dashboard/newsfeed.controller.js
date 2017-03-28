@@ -2,11 +2,15 @@ angular
 .module('financeApp')
 .controller('newsfeedCtrl', newsfeedCtrl);
 
-newsfeedCtrl.$inject = ['$http', 'API'];
+newsfeedCtrl.$inject = ['$http', 'API','CurrentUserService'];
 
-function newsfeedCtrl($http, API) {
+function newsfeedCtrl($http, API, CurrentUserService) {
   const vm = this;
-  vm.tickers = ['AAPL', 'GOOG', 'KO', 'MMM', 'AXP', 'BA', 'CAT', 'CVX', 'CSCO'];
+  // vm.tickers = ['AAPL', 'GOOG', 'KO', 'MMM', 'AXP', 'BA', 'CAT', 'CVX', 'CSCO'];
+
+
+  var data;
+  var userId;
 
   function getWatchlistRSS() {
     $http({
@@ -28,7 +32,7 @@ function newsfeedCtrl($http, API) {
       data: vm.tickers
     }).then(function successCallback(response) {
       vm.filingItems = response.data.filingItems;
-      console.log(vm.filingItems);
+      console.log('filings:', vm.filingItems);
     }, function errorCallback(error) {
       console.log(error);
     });
@@ -54,6 +58,30 @@ function newsfeedCtrl($http, API) {
     });
   }
   // preventOverscroll()
-  getWatchlistRSS();
-  getSecRSS();
+
+  function fetchWatchlist() {
+    $http
+    .get(`${API}/watchlists/${userId}`)
+    .then(function(res, err) {
+      vm.tickers = [];
+      vm.stockData = [];
+      if (err) console.log(err);
+      var tickerArray = res.data.tickers;
+      for (var i = 0; i < tickerArray.length; i++) {
+        vm.tickers.push(tickerArray[i].ticker);
+      }
+    }).then(function() {
+      getWatchlistRSS();
+      getSecRSS();
+    });
+  }
+
+
+  setTimeout(function(){
+    data = CurrentUserService.currentUser;
+    userId = data.user.id;
+  }, 500);
+  setTimeout(function(){
+    fetchWatchlist();
+  }, 1500);
 }

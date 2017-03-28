@@ -55,9 +55,4 @@ function currencyFxCtrl ($http, API) {
       return {color: 'green'};
     }
   };
-
-
-
-
-
 }
