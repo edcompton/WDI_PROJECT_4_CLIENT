@@ -29,7 +29,6 @@ function ChartCtrl($http, API) {
       url: `${API}/historicalprices`,
       data: ['^GSPC']
     }).then(function successCallback(response) {
-      console.log(response);
       vm.priceHistory = response.data.priceHistory;
       createChart(vm.priceHistory);
     }, function errorCallback(error) {

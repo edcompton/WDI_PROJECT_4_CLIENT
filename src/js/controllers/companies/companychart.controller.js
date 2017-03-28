@@ -15,7 +15,6 @@ function CompanyChartCtrl($http, API, $stateParams){
       data: [ticker]
     }).then(function successCallback(response) {
       vm.priceHistory = response.data.priceHistory;
-      // console.log(vm.priceHistory);
       createChart(vm.priceHistory);
     }, function errorCallback(error) {
       console.log(error);
@@ -32,9 +31,6 @@ function CompanyChartCtrl($http, API, $stateParams){
       closeData.push(priceHistory[0][i].Adj_Close);
       dateData.push(priceHistory[0][i].Date);
     }
-    // console.log(date);
-    // console.log(closeData);
-    // console.log(dateData);
     vm.labels = dateData;
     vm.series = ['Adjusted Close', 'Date'];
     vm.data = [

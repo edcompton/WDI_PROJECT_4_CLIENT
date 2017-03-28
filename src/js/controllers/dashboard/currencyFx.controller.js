@@ -26,8 +26,6 @@ function currencyFxCtrl ($http, API) {
         if (vm.currencyData.length === vm.currencies.length) vm.fxFinished = true;
       })
       .then(function() {
-        // console.log(vm.usCrossCurrencies);
-        // console.log(vm.usCurrencyChanges);
         if (vm.fxFinished) callback();
       });
     }

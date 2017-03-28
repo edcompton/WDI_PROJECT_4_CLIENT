@@ -17,14 +17,12 @@ function CurrentUserService(TokenService, User, $rootScope) {
       .$promise
       .then((data) => {
         self.currentUser = data;
-console.log(self.currentUser)
         $rootScope.$broadcast('loggedIn');
       });
     }
   };
 
   self.clearUser = () => {
-    console.log('clearUser in curent User service is logging out');
     self.currentUser = null;
     TokenService.clearToken();
     $rootScope.$broadcast('loggedOut');

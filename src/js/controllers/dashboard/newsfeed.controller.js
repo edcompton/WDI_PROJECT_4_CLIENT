@@ -32,7 +32,6 @@ function newsfeedCtrl($http, API, CurrentUserService) {
       data: vm.tickers
     }).then(function successCallback(response) {
       vm.filingItems = response.data.filingItems;
-      console.log('filings:', vm.filingItems);
     }, function errorCallback(error) {
       console.log(error);
     });
@@ -50,7 +49,6 @@ function newsfeedCtrl($http, API, CurrentUserService) {
 //Possible overscroll prevention
   function preventOverscroll() {
     tile = document.getElementsByClassName('scrollable')[0];
-    console.log(tile);
     tile.bind('mousewheel', (e) => {
       angular.element(this).scrollTop($(this).scrollTop() - e.originalEvent.wheelDeltaY);
       //prevent page fom scrolling

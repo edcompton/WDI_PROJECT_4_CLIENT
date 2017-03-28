@@ -12,13 +12,11 @@ function MainCtrl($rootScope, CurrentUserService, $state, $location){
   vm.user = CurrentUserService.getUser();
 
   $rootScope.$on('loggedIn', () => {
-    console.log('Inside logged in inside main control:', CurrentUserService.currentUser);
     vm.user = CurrentUserService.currentUser;
     $state.go('home', {id: vm.user._id});
   });
 
   $rootScope.$on('loggedOut', () => {
-    console.log('logged out being broadcast in mainCtrl');
     vm.user = null;
     $state.go('login');
   });
@@ -28,10 +26,8 @@ function MainCtrl($rootScope, CurrentUserService, $state, $location){
   };
 
   vm.localSearch = function(str) {
-    // console.log(str);
     var matches = [];
     vm.tickers.forEach(function(ticker) {
-      // console.log(ticker.ticker);
       if ((ticker.ticker.toLowerCase().indexOf(str.toString().toLowerCase()) >= 0)) {
         matches.push(ticker);
       }
@@ -40,7 +36,6 @@ function MainCtrl($rootScope, CurrentUserService, $state, $location){
   };
 
   vm.searchTicker = function(ticker) {
-    // console.log(ticker.description);
     $location.url(`/company/${ticker.description}/summary`);
   };
 

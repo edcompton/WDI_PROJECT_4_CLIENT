@@ -16,17 +16,14 @@ function companyWatchlistCtrl($http, API, CurrentUserService, $location) {
     .post(`${API}/watchlists/${userId}/delete/${companyTicker}`)
     .then(function(res, err) {
       if (err) console.log(err);
-      console.log(res);
     });
   };
 
   vm.addCompany = function(companyTicker) {
-    console.log(companyTicker);
     $http
     .post(`${API}/watchlists/${userId}/add/${companyTicker}`)
     .then(function(res, err) {
       if (err) console.log(err);
-      console.log(res);
     });
   };
 
@@ -66,12 +63,10 @@ function companyWatchlistCtrl($http, API, CurrentUserService, $location) {
 
 
   vm.goToState = function(symbol) {
-    // console.log(symbol);
     $location.url(`/company/${symbol}/summary`);
   };
 
   vm.checkStocks = function(stock) {
-    // console.log(typeof stock);
     if (stock.indexOf('-') >= 0) {
       return {color: 'red'};
     }else {

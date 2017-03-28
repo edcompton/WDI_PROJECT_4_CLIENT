@@ -12,7 +12,6 @@ function RegisterCtrl(User, $rootScope, CurrentUserService) {
       .$promise
       .then(data => {
         CurrentUserService.getUser();
-        console.log("register response:", data);
       }, err => {
         console.log(err);
       });
